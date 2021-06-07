@@ -35,6 +35,7 @@ const handleSubmit = (e) => {
 };
 
   return (
+    <div className = "container-pokemon">
     <div className="app">
       <form onSubmit = {handleSubmit}>
         <label>
@@ -47,26 +48,29 @@ const handleSubmit = (e) => {
       </form>
       {pokemonData.map((data) => {
         return(
-          <div className = "container-pokemon">
+          <div>
             <img src={data.sprites["front_shiny"]} alt = "Couldn't load pokemon"/>
+
             <div className = "divTable">
+
               <div className = "divTableBody"></div>
+
               <div className = "divTableRow">
-                <div className = "divTableCell">Name: </div>
-                <div key="{namepoke}" className = "divTableCell">{pokemonName}</div>
+                <div className = "divTableCell">Name: {pokemonName} </div>
               </div>
+
               <div className = "divTableRow">
-                <div className = "divTableCell">Type: </div>
-                <div key="{typepoke}" className = "divTableCell">{pokemonType}</div>
+                <div className = "divTableCell">Type: {pokemonType}</div>
               </div>
+
               <div className = "divTableRow">
-                <div className = "divTableCell">Number: </div>
-                <div key="{indexpoke}" className = "divTableCell">{pokemonIndex}</div>
+                <div className = "divTableCell">Number: {pokemonIndex}</div>             
+              </div>
               </div>
             </div>
-          </div>
         )
       })}
+    </div>
     </div>
   );
 }
