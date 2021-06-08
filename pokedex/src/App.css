@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url(poke.jpg);
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container-pokemon{
@@ -16,10 +22,58 @@
   margin: 0 auto;
 }
 
+.pokemonPos{
+  width: 300px;
+  height: 160px;
+}
+
+.pokemonBack{
+  margin: 50px auto 0 auto;
+}
+
+.pokemonFront{
+  margin: 0 auto 50px auto;
+}
+
+.pokemonCard{
+
+}
+
 form{
   margin: 0 auto;
 }
 
-img{
+.container {
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+.item {
+  background: gray;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+  
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/*float layout*/
+.float {
+  max-width: 1200px;
   margin: 0 auto;
+}
+.float:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.float-item {
+  float: left;
 }

@@ -8,6 +8,11 @@ const App = () => {
   const [pokemonType, setPokemonType] = useState("")
   const [pokemonIndex, setPokemonIndex] = useState("")
   const [pokemonName, setPokemonName] = useState("")
+  const [pokemonMove1, setPokemonMove1] = useState("")
+  const [pokemonMove2, setPokemonMove2] = useState("")
+  const [pokemonMove3, setPokemonMove3] = useState("")
+  const [pokemonMove4, setPokemonMove4] = useState("")
+
 
   const getPokemon = async () => {
     const toArray = [];
@@ -16,8 +21,12 @@ const App = () => {
       const res = await axios.get(url);
       toArray.push(res.data);
       setPokemonType(res.data.types[0].type.name)
-      setPokemonIndex(res.data.game_indices[0].game_index)
+      setPokemonIndex(res.data.id)
       setPokemonName(res.data.species.name)
+      setPokemonMove1(res.data.moves[0].move.name)
+      setPokemonMove2(res.data.moves[1].move.name)
+      setPokemonMove3(res.data.moves[2].move.name)
+      setPokemonMove4(res.data.moves[3].move.name)
       setPokemonData(toArray);
       console.log(res);
     } catch (e) {
@@ -25,53 +34,92 @@ const App = () => {
     }
   }
 
-const handleChange = (e) => {
-  setPokemon(e.target.value.toLowerCase())
-};
+  const handleChange = (e) => {
+    setPokemon(e.target.value.toLowerCase())
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  getPokemon();
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getPokemon();
+    e.target.reset();
+  };
 
   return (
-    <div className = "container-pokemon">
-    <div className="app">
-      <form onSubmit = {handleSubmit}>
-        <label>
-          <input
-            type = "text"
-            onChange = {handleChange}
-            placeholder = "Pokemon name: "
-          />
-        </label>
-      </form>
-      {pokemonData.map((data) => {
-        return(
-          <div>
-            <img src={data.sprites["front_shiny"]} alt = "Couldn't load pokemon"/>
 
-            <div className = "divTable">
+    <div className="container-pokemon">
+      <div className="app">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="text"
+              onChange={handleChange}
+              placeholder="Pokemon name: "
+            />
+          </label>
+        </form>
 
-              <div className = "divTableBody"></div>
+        {pokemonData.map((data) => {
+          return (
+            <div className="containerBattle">
+              <div className="pokemonPos">
+                <img className="pokemonBack" src={data.sprites["back_shiny"]} alt="Couldn't load pokemon" />
+                <img className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" />
+              </div>
+              <div className="divTable">
 
-              <div className = "divTableRow">
-                <div className = "divTableCell">Name: {pokemonName} </div>
+                <div className="divTableBody"></div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">{pokemonMove1} </div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">{pokemonMove2}</div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">{pokemonMove3}</div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">{pokemonMove4}</div>
+                </div>
+
               </div>
 
-              <div className = "divTableRow">
-                <div className = "divTableCell">Type: {pokemonType}</div>
+              <div className="divTable">
+
+                <div className="divTableBody"></div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">Name: {pokemonName} </div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">Type: {pokemonType}</div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">Number: #{pokemonIndex}</div>
+                </div>
+
               </div>
 
-              <div className = "divTableRow">
-                <div className = "divTableCell">Number: {pokemonIndex}</div>             
+              <div className="pokemonCard">
+                <ul class="container float">
+                  <li class="item float-item">
+                  <img className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" /> #{pokemonIndex} {pokemonType} {pokemonName}
+                  </li>
+                  <li class="item float-item">Pokomon</li>
+                </ul>
               </div>
-              </div>
+
             </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
-    </div>
+
   );
 }
 
