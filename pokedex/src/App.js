@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import './App.css';
 import axios from "axios";
 
@@ -106,11 +106,12 @@ const App = () => {
               </div>
 
               <div className="pokemonCard">
-                <ul class="container float">
-                  <li class="item float-item">
-                  <img className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" /> #{pokemonIndex} {pokemonType} {pokemonName}
+                <ul className="container float">
+                  <li className="item float-item">
+                  <img className="pokemonFrontCard" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" /> 
+                  <div className = "pokemonInfoIndex">#{pokemonIndex}</div> <div className = "pokemonInfoName">{pokemonName}</div> <div className = "pokemonInfoType">{pokemonType}</div>
                   </li>
-                  <li class="item float-item">Pokomon</li>
+                  <li className="item float-item">Pokomon</li>
                 </ul>
               </div>
 
@@ -118,6 +119,7 @@ const App = () => {
           )
         })}
       </div>
+      <div className="container"><dashboard></dashboard></div>
     </div>
 
   );
