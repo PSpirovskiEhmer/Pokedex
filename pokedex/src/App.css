@@ -1,11 +1,14 @@
 .App {
   text-align: center;
-  background-image: url(poke.jpg);
   min-width: 100%;
   min-height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+body{
+  background-image: url('./poke.jpg');
 }
 
 .container-pokemon{
@@ -20,6 +23,8 @@
   border-width: 2px; 
   width: 250px;
   margin: 0 auto;
+  background-color: white;
+  padding: 5px
 }
 
 .pokemonPos{
@@ -38,10 +43,11 @@
 
 .pokemonCard{
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 form{
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .container {
@@ -76,7 +82,7 @@ form{
   visibility: hidden;
 }
 .float-item {
-  float: left;
+  margin: 0 auto;
 }
 
 .pokemonInfoIndex{
@@ -90,4 +96,52 @@ form{
 
 .pokemonInfoType{
   height: 50px;
+}
+
+.headertext{
+  text-align: center;
+}
+
+.load-more {
+  min-width: 20vw;
+  background: rgb(196, 196, 196);  border: 1px solid #c6c6c6;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40vw;
+  margin-right: 40vw;
+}
+
+progress {
+  background: lime;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+  background: lightblue;
+}
+
+progress::-moz-progress-bar {
+  background: lightcolor;
+}
+
+progress::-webkit-progress-value {
+  background: lime;
+}
+
+progress::-webkit-progress-bar {
+  background: gray;
+}
+
+.containerBattle1{
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+.containerBattle2{
+  margin-top: -264px;
+  margin-right: 300px;
 }
