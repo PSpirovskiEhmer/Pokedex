@@ -8,6 +8,7 @@ const App = () => {
   const [name, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonMove1, setPokemonMove1] = useState("")
+  const [pokemonMove1power, setPokemonMove1power] = useState("")
   const [pokemonMove2, setPokemonMove2] = useState("")
   const [pokemonMove3, setPokemonMove3] = useState("")
   const [pokemonMove4, setPokemonMove4] = useState("")
@@ -65,56 +66,78 @@ const App = () => {
     getPokemonTwo();
   };
 
+  // const faintCalc = (v1) => {
+  //   if (v1 == 0) {
+  //     alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+  //   }
+  // }
+
   const calcMoveOneRight = async () => {
     var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7 ) << 0;
+    document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveOneLeft = async () => {
     var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (12) + 12 ) << 0;;
+    document.getElementById("healthFront").value = v1 - (Math.random() * (12) + 12) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveTwoRight = async () => {
     var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (16) + 16 ) << 0;;
+    document.getElementById("healthBack").value = v1 - (Math.random() * (16) + 16) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveTwoLeft = async () => {
     var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (6) + 6 ) << 0;;
+    document.getElementById("healthFront").value = v1 - (Math.random() * (6) + 6) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveThreeRight = async () => {
     var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (8) + 8 ) << 0;;
+    document.getElementById("healthBack").value = v1 - (Math.random() * (8) + 8) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveThreeLeft = async () => {
     var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (19) + 19 ) << 0;;
+    document.getElementById("healthFront").value = v1 - (Math.random() * (19) + 19) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+    if (v1 == 0) {
+      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    }
   }
 
   const calcMoveFourRight = async () => {
     var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 + (Math.random() * (15) + 15 ) << 0;;
+    document.getElementById("healthFront").value = v1 + (Math.random() * (15) + 15) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
   }
 
   const calcMoveFourLeft = async () => {
     var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 + (Math.random() * (30) + 30 ) << 0;;
+    document.getElementById("healthBack").value = v1 + (Math.random() * (30) + 30) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
   }
 
-
-  /////////////////////////////////////////////////
   const [allPokemon, setAllPokemon] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
 
@@ -163,7 +186,7 @@ const App = () => {
                   </div>
                   <div className="divTable">
                     <div className="divTableBody">
-                    {pokemonHealthRight}/100 &nbsp;&nbsp;
+                      {pokemonHealthRight}/100 &nbsp;&nbsp;
                       <progress id="healthFront" value="100" max="100"></progress>
 
                       <div className="divTableRow">
