@@ -35,15 +35,11 @@ body{
 
 .pokemonBack{
   margin-top: 50px;
+  margin-left: 150px;
 }
 
 .pokemonFront{
-  margin-bottom: 50px;
-}
-
-.pokemonCard{
-  margin: 0 auto;
-  margin-top: 25px;
+  margin-right: 150px;
 }
 
 form{
@@ -120,6 +116,14 @@ progress {
   border-radius: 3px;
 }
 
+.progressLeft{
+  margin-top: 20px;
+}
+
+.progressRight{
+  margin-bottom: 20px;
+}
+
 progress::-webkit-progress-value {
   background: lightblue;
 }
@@ -142,6 +146,18 @@ progress::-webkit-progress-bar {
 }
 
 .containerBattle2{
-  margin-top: -264px;
+  margin-top: -244px;
   margin-right: 300px;
+}
+
+.divTableRow{
+  padding-top: 5px;
+}
+
+.divTableCell1{
+  margin-right: 5px;
+}
+
+.divTableCell2{
+  margin-left: 5px;
 }
