@@ -75,7 +75,17 @@ const App = () => {
   const calcMoveOneRight = async () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
+    setPokemonHealthLeft(document.getElementById("healthBack").value);   
+    // element.classList.add("attack");
+    // element.addEventListener('transitionend', () => {
+    //   element.classList.remove("attack");
+    // });
+    var element = document.getElementById("attackone");
+    element.classList.add("attackRight");
+    setTimeout( () => {
+      element.classList.remove("attackRight");
+    } , 700)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -85,6 +95,13 @@ const App = () => {
     var v1 = document.getElementById('healthFront').value;
     document.getElementById("healthFront").value = v1 - (Math.random() * (12) + 12) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+
+    var element = document.getElementById("attacktwo");
+    element.classList.add("attackLeft");
+    setTimeout( () => {
+      element.classList.remove("attackLeft");
+    } , 700)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -94,6 +111,13 @@ const App = () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 - (Math.random() * (16) + 16) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+
+    var element = document.getElementById("attacktwo");
+    element.classList.add("scratch");
+    setTimeout( () => {
+      element.classList.remove("scratch");
+    } , 400)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -103,6 +127,13 @@ const App = () => {
     var v1 = document.getElementById('healthFront').value;
     document.getElementById("healthFront").value = v1 - (Math.random() * (6) + 6) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+
+    var element = document.getElementById("attackone");
+    element.classList.add("bite");
+    setTimeout( () => {
+      element.classList.remove("bite");
+    } , 400)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -112,6 +143,13 @@ const App = () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 - (Math.random() * (8) + 8) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+
+    var element = document.getElementById("attacktwo");
+    element.classList.add("tornado");
+    setTimeout( () => {
+      element.classList.remove("tornado");
+    } , 700)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -121,6 +159,13 @@ const App = () => {
     var v1 = document.getElementById('healthFront').value;
     document.getElementById("healthFront").value = v1 - (Math.random() * (19) + 19) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+
+    var element = document.getElementById("attackone");
+    element.classList.add("strike");
+    setTimeout( () => {
+      element.classList.remove("strike");
+    } , 700)
+
     if (v1 == 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
@@ -128,14 +173,26 @@ const App = () => {
 
   const calcMoveFourRight = async () => {
     var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 + (Math.random() * (15) + 15) << 0;
+    document.getElementById("healthFront").value = v1 + (Math.random() * (20) + 15) << 0;
     setPokemonHealthRight(document.getElementById("healthFront").value);
+
+    var element = document.getElementById("attackone");
+    element.classList.add("heal");
+    setTimeout( () => {
+      element.classList.remove("heal");
+    } , 800)
   }
 
   const calcMoveFourLeft = async () => {
     var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 + (Math.random() * (30) + 30) << 0;
+    document.getElementById("healthBack").value = v1 + (Math.random() * (10) + 20) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);
+
+    var element = document.getElementById("attacktwo");
+    element.classList.add("greenheal");
+    setTimeout( () => {
+      element.classList.remove("greenheal");
+    } , 400)
   }
 
   const [allPokemon, setAllPokemon] = useState([])
@@ -182,7 +239,7 @@ const App = () => {
               return (
                 <div className="containerBattle1">
                   <div className="pokemonPos">
-                    <img className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" />
+                    <img id="attackone" className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" />
                   </div>
                   <div className="divTable">
                     <div className="divTableBody">
@@ -208,7 +265,7 @@ const App = () => {
               return (
                 <div className="containerBattle2">
                   <div className="pokemonPos">
-                    <img className="pokemonBack" src={data.sprites["back_shiny"]} alt="Couldn't load pokemon" />
+                    <img id="attacktwo" className="pokemonBack" src={data.sprites["back_shiny"]} alt="Couldn't load pokemon" />
                   </div>
                   <div className="divTable">
 

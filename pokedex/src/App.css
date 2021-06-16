@@ -40,6 +40,7 @@ body{
 
 .pokemonFront{
   margin-right: 150px;
+  z-index: 1000;
 }
 
 form{
@@ -160,4 +161,50 @@ progress::-webkit-progress-bar {
 
 .divTableCell2{
   margin-left: 5px;
+}
+
+@keyframes attackAnimationRight {
+  0% {transform: translate(0px,0px);}
+  50% {transform: translate(-125px,50px);}
+  100% {transform: translate(0px,0px);}
+}
+
+.attackRight{
+  animation-name: attackAnimationRight;
+  animation-duration: 0.7s;
+}
+
+@keyframes attackAnimationLeft {
+  0% {transform: translate(0px,0px);}
+  50% {transform: translate(125px,-50px);}
+  100% {transform: translate(0px,0px);}
+}
+
+.attackLeft{
+  animation-name: attackAnimationLeft;
+  animation-duration: 0.7s;
+}
+
+.scratch{
+  background-image: url('./scratch.png');
+}
+
+.heal{
+  background-image: url('./heal.png');
+}
+
+.greenheal{
+  background-image: url('./greenheal.png');
+}
+
+.bite{
+  background-image: url('./bite.png');
+}
+
+.strike{
+  background-image: url('./strike.png');
+}
+
+.tornado{
+  background-image: url('./tornado.png');
 }
