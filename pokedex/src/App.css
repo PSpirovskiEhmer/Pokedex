@@ -208,3 +208,17 @@ progress::-webkit-progress-bar {
 .tornado{
   background-image: url('./tornado.png');
 }
+
+.reset{
+margin: 50px auto 20px auto;
+}
+
+input{
+  text-align: center;
+}
+
+.button{
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

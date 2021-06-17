@@ -59,27 +59,20 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getPokemon();
+    document.getElementById("output").value  = "";
   };
 
   const handleSubmitTwo = (e) => {
     e.preventDefault();
     getPokemonTwo();
+    document.getElementById("output").value  = "";
   };
-
-  // const faintCalc = (v1) => {
-  //   if (v1 == 0) {
-  //     alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
-  //   }
-  // }
 
   const calcMoveOneRight = async () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7) << 0;
     setPokemonHealthLeft(document.getElementById("healthBack").value);   
-    // element.classList.add("attack");
-    // element.addEventListener('transitionend', () => {
-    //   element.classList.remove("attack");
-    // });
+
     var element = document.getElementById("attackone");
     element.classList.add("attackRight");
     setTimeout( () => {
@@ -195,6 +188,16 @@ const App = () => {
     } , 400)
   }
 
+  const resetHealth = async () => {
+    var v1 = document.getElementById('healthBack').value;
+    document.getElementById("healthBack").value = v1 + (100 - v1);
+    var v2 = document.getElementById('healthFront').value;
+    document.getElementById("healthFront").value = v2 + (100 - v2); 
+
+    setPokemonHealthLeft(document.getElementById("healthBack").value);
+    setPokemonHealthRight(document.getElementById("healthFront").value);
+  }
+
   const [allPokemon, setAllPokemon] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
 
@@ -214,10 +217,6 @@ const App = () => {
     createPokemonObject(data.results)
   }
 
-  //  useEffect(() => {
-  //   getAllPokemon()
-  //  }, [])
-
   return (
     <div className="app-contaner">
       <div className="container-pokemon">
@@ -225,14 +224,15 @@ const App = () => {
           <form>
             <label>
               <input
+                id = "output"
                 type="text"
                 onChange={handleChange}
                 placeholder="Pokemon name: "
               />
             </label>
           </form>
-          <button onClick={handleSubmitTwo}>Click here</button>
-          <button onClick={handleSubmit}>Click here</button>
+          <button className = "button" onClick={handleSubmitTwo}>Pokemon #1</button>
+          <button className = "button" onClick={handleSubmit}>Pokemon #2</button>
           <div className="alldiv">
 
             {pokemonDataTwo.map((data) => {
@@ -284,9 +284,11 @@ const App = () => {
                     </div>
                   </div>
                 </div>
+                
               )
             })}
           </div>
+          <button onClick={resetHealth} className="reset">Reset HP</button>
         </div>
       </div>
       <h1 className="headertext">Pokédex</h1>
@@ -306,161 +308,5 @@ const App = () => {
     </div>
   );
 }
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       countries: [],
-//       stats: []
-//     }
-//   }
-//   async componentDidMount() {
-//     const resp = await fetch('https://pokeapi.co/api/v2/pokemon')
-//     const countries = await resp.json()
-//     this.setState({ countries })
-//     this.state.countries.forEach(async results => {
-//       const resp = await fetch(`https://pokeapi.co/api/v2/pokemon${results.name}`)
-//       const data = await resp.json()
-//       if (data.length)
-//         this.setState(prevState => (
-//           { stats: prevState.stats.concat(data[data.length - 1])}
-//         ))
-//     })
-//   }
-//   render(){
-//     return(
-//       <div className="App">
-//         {
-//           this.state.stats.map(results => <h1>{results.name}</h1>)
-//         }
-//       </div>
-//     )
-//   }
-
-// const App = () => {
-//   const baseUrl = "https://pokeapi.co/api/v2/pokemon?limit=151"
-//   const [pokemonList] = useState([]);
-//   const [name, setPokemon] = useState("");
-//   const [pokemonData, setPokemonData] = useState([]);
-//   const [pokemonType, setPokemonType] = useState("")
-//   const [pokemonIndex, setPokemonIndex] = useState("")
-//   const [pokemonName, setPokemonName] = useState("")
-//   const [pokemonMove1, setPokemonMove1] = useState("")
-//   const [pokemonMove2, setPokemonMove2] = useState("")
-//   const [pokemonMove3, setPokemonMove3] = useState("")
-//   const [pokemonMove4, setPokemonMove4] = useState("")
-
-
-//   const getList = async ()  => {
-//     const url = baseUrl + 'pokemon?limit=151'
-//     const res = await axios.get(url);
-//     console.log(res)
-//   }
-
-// const getPokemon = async () => {
-//   const toArray = [];
-//   try {
-//     const url = baseUrl + `pokemon/${name}`
-//     const res = await axios.get(url);
-//     toArray.push(res.data);
-//     setPokemonType(res.data.types[0].type.name)
-//     setPokemonIndex(res.data.id)
-//     setPokemonName(res.data.species.name)
-//     setPokemonMove1(res.data.moves[0].move.name)
-//     setPokemonMove2(res.data.moves[1].move.name)
-//     setPokemonMove3(res.data.moves[2].move.name)
-//     setPokemonMove4(res.data.moves[3].move.name)
-//     setPokemonData(toArray);
-//   } catch (e) {
-//     console.log(e)
-//   }
-// }
-
-// const handleChange = (e) => {
-//   setPokemon(e.target.value.toLowerCase())
-// };
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   getPokemon();
-//   e.target.reset();
-// };
-
-// const handleLoad = (e) => {
-//   e.preventDefault();
-//   getList();
-//   getPokemon();
-// }
-
-// return (
-
-//   <div onLoad = {handleLoad} className="container-pokemon">
-//     <div className="app">
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           <input
-//             type="text"
-//             onChange={handleChange}
-//             placeholder="Pokemon name: "
-//           />
-//         </label>
-//       </form>
-
-//     {pokemonData.map((data) => {
-//       return (
-//         <div className="containerBattle">
-//           <div className="pokemonPos">
-//             <img className="pokemonBack" src={data.sprites["back_shiny"]} alt="Couldn't load pokemon" />
-//             <img className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" />
-//           </div>
-//           <div className="divTable">
-
-//             <div className="divTableBody"></div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">{pokemonMove1} </div>
-//             </div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">{pokemonMove2}</div>
-//             </div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">{pokemonMove3}</div>
-//             </div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">{pokemonMove4}</div>
-//             </div>
-
-//           </div>
-
-//           <div className="divTable">
-
-//             <div className="divTableBody"></div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">Name: {pokemonName} </div>
-//             </div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">Type: {pokemonType}</div>
-//             </div>
-
-//             <div className="divTableRow">
-//               <div className="divTableCell">Number: #{pokemonIndex}</div>
-//             </div>
-
-//           </div>
-
-//           <div id="pokemonlists"></div>
-
-//         </div>
-//       )
-//     })}
-//   </div>
-// </div>
-
-// );
 
 export default App;
