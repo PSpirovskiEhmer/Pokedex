@@ -8,7 +8,7 @@ const App = () => {
   const [name, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonMove1, setPokemonMove1] = useState("")
-  const [pokemonMove1power, setPokemonMove1power] = useState("")
+  // const [pokemonMove1power, setPokemonMove1power] = useState("")
   const [pokemonMove2, setPokemonMove2] = useState("")
   const [pokemonMove3, setPokemonMove3] = useState("")
   const [pokemonMove4, setPokemonMove4] = useState("")
@@ -59,27 +59,27 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getPokemon();
-    document.getElementById("output").value  = "";
+    document.getElementById("output").value = "";
   };
 
   const handleSubmitTwo = (e) => {
     e.preventDefault();
     getPokemonTwo();
-    document.getElementById("output").value  = "";
+    document.getElementById("output").value = "";
   };
 
   const calcMoveOneRight = async () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);   
+    setPokemonHealthLeft(document.getElementById("healthBack").value);
 
     var element = document.getElementById("attackone");
     element.classList.add("attackRight");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("attackRight");
-    } , 700)
+    }, 700)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -91,11 +91,11 @@ const App = () => {
 
     var element = document.getElementById("attacktwo");
     element.classList.add("attackLeft");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("attackLeft");
-    } , 700)
+    }, 700)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -107,11 +107,11 @@ const App = () => {
 
     var element = document.getElementById("attacktwo");
     element.classList.add("scratch");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("scratch");
-    } , 400)
+    }, 400)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -123,11 +123,11 @@ const App = () => {
 
     var element = document.getElementById("attackone");
     element.classList.add("bite");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("bite");
-    } , 400)
+    }, 400)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -139,11 +139,11 @@ const App = () => {
 
     var element = document.getElementById("attacktwo");
     element.classList.add("tornado");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("tornado");
-    } , 700)
+    }, 700)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -155,11 +155,11 @@ const App = () => {
 
     var element = document.getElementById("attackone");
     element.classList.add("strike");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("strike");
-    } , 700)
+    }, 700)
 
-    if (v1 == 0) {
+    if (v1 === 0) {
       alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
     }
   }
@@ -171,9 +171,9 @@ const App = () => {
 
     var element = document.getElementById("attackone");
     element.classList.add("heal");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("heal");
-    } , 800)
+    }, 800)
   }
 
   const calcMoveFourLeft = async () => {
@@ -183,23 +183,23 @@ const App = () => {
 
     var element = document.getElementById("attacktwo");
     element.classList.add("greenheal");
-    setTimeout( () => {
+    setTimeout(() => {
       element.classList.remove("greenheal");
-    } , 400)
+    }, 400)
   }
 
   const resetHealth = async () => {
     var v1 = document.getElementById('healthBack').value;
     document.getElementById("healthBack").value = v1 + (100 - v1);
     var v2 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v2 + (100 - v2); 
+    document.getElementById("healthFront").value = v2 + (100 - v2);
 
     setPokemonHealthLeft(document.getElementById("healthBack").value);
     setPokemonHealthRight(document.getElementById("healthFront").value);
   }
 
   const [allPokemon, setAllPokemon] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
+  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=50')
 
   const getAllPokemon = async () => {
     const res = await fetch(loadMore)
@@ -211,28 +211,29 @@ const App = () => {
       results.forEach(async pokemon => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json()
-        setAllPokemon(currentList => [...currentList, data])
+        setAllPokemon(listArray => [...listArray, data])
       })
     }
     createPokemonObject(data.results)
   }
 
   return (
+
     <div className="app-contaner">
       <div className="container-pokemon">
         <div className="app">
           <form>
             <label>
               <input
-                id = "output"
+                id="output"
                 type="text"
                 onChange={handleChange}
                 placeholder="Pokemon name: "
               />
             </label>
           </form>
-          <button className = "button" onClick={handleSubmitTwo}>Pokemon #1</button>
-          <button className = "button" onClick={handleSubmit}>Pokemon #2</button>
+          <button className="button" onClick={handleSubmitTwo}>Pokemon #1</button>
+          <button className="button" onClick={handleSubmit}>Pokemon #2</button>
           <div className="alldiv">
 
             {pokemonDataTwo.map((data) => {
@@ -273,7 +274,7 @@ const App = () => {
                       {pokemonHealthLeft}/100 &nbsp;&nbsp;
                       <progress id="healthBack" value="100" max="100"></progress>
                       <div className="divTableRow">
-                        <button onClick={calcMoveOneLeft} className="divTableCell1">{pokemonMove1} </button>
+                        <button onClick={calcMoveOneLeft} className="divTableCell1">{pokemonMove1}</button>
                         <button onClick={calcMoveTwoLeft} className="divTableCell2">{pokemonMove2}</button>
                       </div>
 
@@ -284,7 +285,7 @@ const App = () => {
                     </div>
                   </div>
                 </div>
-                
+
               )
             })}
           </div>
