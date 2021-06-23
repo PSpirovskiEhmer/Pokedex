@@ -199,7 +199,7 @@ const App = () => {
   }
 
   const [allPokemon, setAllPokemon] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=50')
+  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
 
   const getAllPokemon = async () => {
     const res = await fetch(loadMore)

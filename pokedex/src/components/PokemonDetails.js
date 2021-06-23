@@ -2,7 +2,7 @@ import React from 'react'
 import './card.css';
 
 const PokemonDetails = ({ id, image, name, type }) => {
-    const style = type + "detailcontainer";
+    const style = type + " detailcontainer";
     return (
         <div className={style}>
             <img src={image} alt={name} />
