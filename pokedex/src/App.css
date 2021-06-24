@@ -211,7 +211,7 @@ progress::-webkit-progress-bar {
 }
 
 .greenheal {
-    background-image: url('./greenheal.png');
+    background-image: url('../public/greenheal.png');
 }
 
 .bite {
