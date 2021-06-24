@@ -22,4 +22,104 @@ body {
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
     text-transform: capitalize;
     background-color: white;
+    height: 200px;
+}
+
+.table{
+    visibility: hidden;
+    font-size: 15px;
+}
+
+.table, td{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.detailcontainer:hover .table{
+    visibility: visible;
+    opacity: 1;
+    margin-top: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.detailcontainer:hover{
+    height: 300px;
+}
+
+.fire{
+    background-color: rgb(245, 191, 191);
+}
+
+.grass{
+    background-color: rgb(177, 238, 177);
+}
+
+.water{
+    background-color: skyblue;
+}
+
+.bug{
+    background-color: rgb(78, 180, 78);
+}
+
+.normal{
+    background-color: tan;
+}
+
+.electric{
+    background-color: rgb(240, 240, 73);
+}
+
+.poison{
+    background-color: rgb(155, 76, 155);
+    color: white;
+}
+
+.ground{
+    background-color: rgb(250, 187, 71);
+}
+
+.fairy{
+    background-color: rgb(236, 115, 232);
+}
+
+.fighting{
+    background-color: peachpuff;
+}
+
+.psychic{
+    background-color: rgb(109, 86, 131);
+    color: white;
+}
+
+.rock{
+    background-color: rgb(172, 130, 53);
+    color: white;
+}
+
+.ghost{
+    background-color: rgba(0, 0, 0, 0.300);
+}
+
+.ice{
+    background-color: rgb(89, 243, 243);
+}
+
+.dragon{
+    background-color: slategray;
+    color: white;
+}
+
+.dark{
+    background-color: rgb(80, 79, 79);
+    color: white;
+}
+
+.steel{
+    background-color: silver;
+}
+
+.flying{
+    background-color: antiquewhite;
 }
