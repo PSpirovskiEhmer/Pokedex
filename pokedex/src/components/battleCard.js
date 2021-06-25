@@ -10,7 +10,7 @@ const battleCard = ({ health, picture, move1, move2, move3, move4 }) => {
             <div className="card-wrapper">
                 <progress>{health}/100 &nbsp;&nbsp;</progress>
                 <div className = "divTableRow">
-                    <button onClick = {calcMoveOneRight}></button>
+                    {/* <button onClick = {calcMoveOneRight}></button> */}
                 </div>
             </div>
         </div>

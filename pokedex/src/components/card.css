@@ -21,8 +21,15 @@ body {
     text-align: center;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
     text-transform: capitalize;
-    background-color: white;
-    height: 250px;
+    height: 100px;
+}
+
+.detail-wrapper{
+    visibility: hidden;
+}
+
+.position{
+    margin-top: 175px;
 }
 
 .table{
@@ -43,12 +50,25 @@ body {
     transition: 0.5s ease-in-out;
 }
 
+.detailcontainer:hover .detail-wrapper{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+
+.detailcontainer:hover .position{
+    margin-top: 0px;
+}
+
 .detailcontainer:hover{
     height: 300px;
 }
 
 .fire{
     background-color: rgb(245, 191, 191);
+    background-repeat: repeat;
+    background-size: 10px;
+    background-position: center;
 }
 
 .grass{
