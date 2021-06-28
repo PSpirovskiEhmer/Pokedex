@@ -7,8 +7,25 @@ const App = () => {
 
   const [name, setPokemon] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
+  const [pokemonName, setPokemonName] = useState("")
+  const [pokemonID, setPokemonID] = useState("")
+  const [pokemonType, setPokemonType] = useState("")
+  const [pokemonAttack, setPokemonAttack] = useState("")
+  const [pokemonDefense, setPokemonDefense] = useState("")
+  const [pokemonHP, setPokemonHP] = useState("")
+  const [pokemonSpatk, setPokemonSpatk] = useState("")
+  const [pokemonSpdef, setPokemonSpdef] = useState("")
+  const [pokemonSpeed, setPokemonSpeed] = useState("")
+  const [pokemonNameTwo, setPokemonNameTwo] = useState("")
+  const [pokemonIDTwo, setPokemonIDTwo] = useState("")
+  const [pokemonTypeTwo, setPokemonTypeTwo] = useState("")
+  const [pokemonAttackTwo, setPokemonAttackTwo] = useState("")
+  const [pokemonDefenseTwo, setPokemonDefenseTwo] = useState("")
+  const [pokemonHPTwo, setPokemonHPTwo] = useState("")
+  const [pokemonSpatkTwo, setPokemonSpatkTwo] = useState("")
+  const [pokemonSpdefTwo, setPokemonSpdefTwo] = useState("")
+  const [pokemonSpeedTwo, setPokemonSpeedTwo] = useState("")
   const [pokemonMove1, setPokemonMove1] = useState("")
-  // const [pokemonMove1power, setPokemonMove1power] = useState("")
   const [pokemonMove2, setPokemonMove2] = useState("")
   const [pokemonMove3, setPokemonMove3] = useState("")
   const [pokemonMove4, setPokemonMove4] = useState("")
@@ -19,6 +36,8 @@ const App = () => {
   const [pokemonMove4Two, setPokemonMove4Two] = useState("")
   const [pokemonHealthLeft, setPokemonHealthLeft] = useState("")
   const [pokemonHealthRight, setPokemonHealthRight] = useState("")
+  const conteffectNew = pokemonType + " detailcontainerNew";
+  const conteffectNewTwo = pokemonTypeTwo + " detailcontainerNewTwo";
 
   const getPokemon = async () => {
     const toArray = [];
@@ -26,6 +45,15 @@ const App = () => {
       const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
       const res = await axios.get(url);
       toArray.push(res.data);
+      setPokemonName(res.data.name)
+      setPokemonID(res.data.id)
+      setPokemonType(res.data.types[0].type.name)
+      setPokemonHP(res.data.stats[0].base_stat)
+      setPokemonAttack(res.data.stats[1].base_stat)
+      setPokemonDefense(res.data.stats[2].base_stat)
+      setPokemonSpatk(res.data.stats[3].base_stat)
+      setPokemonSpdef(res.data.stats[4].base_stat)
+      setPokemonSpeed(res.data.stats[5].base_stat)
       setPokemonMove1(res.data.moves[0].move.name)
       setPokemonMove2(res.data.moves[1].move.name)
       setPokemonMove3(res.data.moves[2].move.name)
@@ -42,6 +70,15 @@ const App = () => {
       const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
       const res = await axios.get(url);
       toArray.push(res.data);
+      setPokemonNameTwo(res.data.name)
+      setPokemonIDTwo(res.data.id)
+      setPokemonHPTwo(res.data.stats[0].base_stat)
+      setPokemonAttackTwo(res.data.stats[1].base_stat)
+      setPokemonDefenseTwo(res.data.stats[2].base_stat)
+      setPokemonSpatkTwo(res.data.stats[3].base_stat)
+      setPokemonSpdefTwo(res.data.stats[4].base_stat)
+      setPokemonSpeedTwo(res.data.stats[5].base_stat)
+      setPokemonTypeTwo(res.data.types[0].type.name)
       setPokemonMove1Two(res.data.moves[0].move.name)
       setPokemonMove2Two(res.data.moves[1].move.name)
       setPokemonMove3Two(res.data.moves[2].move.name)
@@ -258,6 +295,30 @@ const App = () => {
 
                     </div>
                   </div>
+
+                  <div className={conteffectNewTwo}>
+                    <div className="triangle"></div>
+                    <img id="attacktwo" src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
+                    <div className="detail-wrapperNew">
+                      <small>#0{pokemonIDTwo}</small>
+                      <h5>{pokemonNameTwo}</h5>
+                      <small>Type: {pokemonType}</small>
+                      <table className="tableNew">
+                        <tbody>
+                          <tr>
+                            <td>HP: <br></br>{pokemonHPTwo}</td>
+                            <td>Attack: {pokemonAttackTwo}</td>
+                            <td>Defense: {pokemonDefenseTwo}</td>
+                          </tr>
+                          <tr>
+                            <td>Sp. Att: {pokemonSpatkTwo}</td>
+                            <td>Sp. Def: {pokemonSpdefTwo}</td>
+                            <td>Speed: <br></br>{pokemonSpeedTwo}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               )
             })}
@@ -284,37 +345,36 @@ const App = () => {
                       </div>
                     </div>
                   </div>
+                  <div className={conteffectNew}>
+                    <div className="triangle"></div>
+                    <img id="attacktwo" src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
+                    <div className="detail-wrapperNew">
+                      <small>#0{pokemonID}</small>
+                      <h5>{pokemonName}</h5>
+                      <small>Type: {pokemonType}</small>
+                      <table className="tableNew">
+                        <tbody>
+                          <tr>
+                            <td>HP: <br></br>{pokemonHP}</td>
+                            <td>Attack: {pokemonAttack}</td>
+                            <td>Defense: {pokemonDefense}</td>
+                          </tr>
+                          <tr>
+                            <td>Sp. Att: {pokemonSpatk}</td>
+                            <td>Sp. Def: {pokemonSpdef}</td>
+                            <td>Speed: <br></br>{pokemonSpeed}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
+
 
               )
             })}
-            {/* {pokemonDataTwo.map((data) => {
-              return (
-                <div className="battleInfo1">
-                  <div className="cardRight">
-                    <img className="pokemonFront2" src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
-                  </div>
-                </div>
-              )
-            })}
-
-            {pokemonDataTwo.map((data) => {
-              return (
-                <div className="battleInfo2">
-                  <div className="cardLeft">
-                    <img className="pokemonBack2" src={data.sprites["back_default"]} alt="Couldn't load pokemon" />
-                  </div>
-                </div>
-              )
-            })} */}
           </div>
           <button onClick={resetHealth} className="reset">Reset HP</button>
-        </div>
-        <div className="battlecard-container">
-          {pokemonData.map((data) => {
-            
-            
-          })}
         </div>
       </div>
       <h1 className="headertext">Pokédex</h1>
