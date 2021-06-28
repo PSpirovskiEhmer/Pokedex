@@ -32,6 +32,11 @@ body {
     width: 750px;
 }
 
+.app{
+    padding-top: 10px;
+    background-color: gray;
+}
+
 .divTable {
     border-color: black;
     border-style: solid;
@@ -163,11 +168,13 @@ progress::-webkit-progress-bar {
 .containerBattle1 {
     margin-left: 300px;
     margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 .containerBattle2 {
-    margin-top: -624px;
+    margin-top: -644px;
     margin-right: 300px;
+    padding-bottom: 20px;
 }
 
 .divTableRow {
@@ -307,7 +314,7 @@ input {
     height: 0; 
     border-left: 35px solid transparent;
     border-right: 35px solid transparent;   
-    border-bottom: 35px solid gray;
+    border-bottom: 35px solid white;
     position:absolute;
 }
 

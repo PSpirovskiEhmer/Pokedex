@@ -298,11 +298,11 @@ const App = () => {
 
                   <div className={conteffectNewTwo}>
                     <div className="triangle"></div>
-                    <img id="attacktwo" src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
+                    <img src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
                     <div className="detail-wrapperNew">
                       <small>#0{pokemonIDTwo}</small>
                       <h5>{pokemonNameTwo}</h5>
-                      <small>Type: {pokemonType}</small>
+                      <small>Type: {pokemonTypeTwo}</small>
                       <table className="tableNew">
                         <tbody>
                           <tr>
@@ -347,7 +347,7 @@ const App = () => {
                   </div>
                   <div className={conteffectNew}>
                     <div className="triangle"></div>
-                    <img id="attacktwo" src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
+                    <img src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
                     <div className="detail-wrapperNew">
                       <small>#0{pokemonID}</small>
                       <h5>{pokemonName}</h5>
