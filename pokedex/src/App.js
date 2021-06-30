@@ -105,131 +105,180 @@ const App = () => {
     document.getElementById("output").value = "";
   };
 
-  const calcMoveOneRight = async () => {
-    var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (7) + 7) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
-
-    var element = document.getElementById("attackone");
-    element.classList.add("attackRight");
-    setTimeout(() => {
-      element.classList.remove("attackRight");
-    }, 700)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+  const ishealthzero = () => {
+    var v1 = document.getElementById('healthFront');
+    var v2 = document.getElementById('healthBack');
+    if (v1.value === 0) {
+      alert("You win! The opposing pokemon has fainted!");
+      resetHealth();
     }
+    if (v2.value === 0) {
+      alert("You win! The opposing pokemon has fainted!");
+      resetHealth();
+    }
+  }
+
+  const calcMoveOneRight = async () => {
+    var v1 = document.getElementById('healthBack');
+    v1.value -= (Math.random() * (7) + 7) << 0;
+    setPokemonHealthLeft(v1.value);
+
+    if (v1.value > 0) {
+      var element = document.getElementById("attackone");
+      element.classList.add("attackRight");
+      setTimeout(() => {
+        element.classList.remove("attackRight");
+      }, 700)
+    }
+
+    if (v1.value > 0) {
+      var audio = document.getElementById("audioleftone")
+      audio.play();
+    }
+
+    ishealthzero();
   }
 
   const calcMoveOneLeft = async () => {
-    var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (12) + 12) << 0;
-    setPokemonHealthRight(document.getElementById("healthFront").value);
+    var v1 = document.getElementById('healthFront');
+    v1.value -= (Math.random() * (12) + 12) << 0;
+    setPokemonHealthRight(v1.value);
 
-    var element = document.getElementById("attacktwo");
-    element.classList.add("attackLeft");
-    setTimeout(() => {
-      element.classList.remove("attackLeft");
-    }, 700)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    if (v1.value > 0) {
+      var element = document.getElementById("attacktwo");
+      element.classList.add("attackLeft");
+      setTimeout(() => {
+        element.classList.remove("attackLeft");
+      }, 700)
     }
+
+    if (v1.value > 0) {
+      var audio = document.getElementById("audioleftone")
+      audio.play();
+    }
+
+    ishealthzero();
   }
 
   const calcMoveTwoRight = async () => {
-    var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (16) + 16) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
+    var v1 = document.getElementById('healthBack');
+    v1.value -= (Math.random() * (16) + 16) << 0;
+    setPokemonHealthLeft(v1.value);
 
-    var element = document.getElementById("attacktwo");
-    element.classList.add("scratch");
-    setTimeout(() => {
-      element.classList.remove("scratch");
-    }, 400)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    if (v1.value > 0) {
+      var audio = document.getElementById("audiorighttwo")
+      audio.play();
     }
+
+    if (v1.value > 0) {
+      var element = document.getElementById("attacktwo");
+      element.classList.add("scratch");
+      setTimeout(() => {
+        element.classList.remove("scratch");
+      }, 400)
+    }
+
+    ishealthzero();
   }
 
   const calcMoveTwoLeft = async () => {
-    var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (6) + 6) << 0;
-    setPokemonHealthRight(document.getElementById("healthFront").value);
+    var v1 = document.getElementById('healthFront');
+    v1.value -= (Math.random() * (6) + 6) << 0;
+    setPokemonHealthRight(v1.value);
 
-    var element = document.getElementById("attackone");
-    element.classList.add("bite");
-    setTimeout(() => {
-      element.classList.remove("bite");
-    }, 400)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    if (v1.value > 0) {
+      var element = document.getElementById("attackone");
+      element.classList.add("bite");
+      setTimeout(() => {
+        element.classList.remove("bite");
+      }, 400)
     }
+
+    if (v1.value > 0) {
+      var audio = document.getElementById("audiolefttwo")
+      audio.play();
+    }
+
+    ishealthzero();
   }
 
   const calcMoveThreeRight = async () => {
-    var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 - (Math.random() * (8) + 8) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
+    var v1 = document.getElementById('healthBack');
+    v1.value -= (Math.random() * (8) + 8) << 0;
+    setPokemonHealthLeft(v1.value);
 
-    var element = document.getElementById("attacktwo");
-    element.classList.add("tornado");
-    setTimeout(() => {
-      element.classList.remove("tornado");
-    }, 700)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    if (v1.value > 0) {
+      var element = document.getElementById("attacktwo");
+      element.classList.add("tornado");
+      setTimeout(() => {
+        element.classList.remove("tornado");
+      }, 2000)
     }
+
+    if (v1.value > 0) {
+      var audio = document.getElementById("audiorightthree")
+      audio.play();
+    }
+
+    ishealthzero();
   }
 
   const calcMoveThreeLeft = async () => {
-    var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 - (Math.random() * (19) + 19) << 0;
-    setPokemonHealthRight(document.getElementById("healthFront").value);
+    var v1 = document.getElementById('healthFront');
+    v1.value -= (Math.random() * (19) + 19) << 0;
+    setPokemonHealthRight(v1.value);
 
-    var element = document.getElementById("attackone");
-    element.classList.add("strike");
-    setTimeout(() => {
-      element.classList.remove("strike");
-    }, 700)
-
-    if (v1 === 0) {
-      alert("Cannot attack the pokemon as the opposing pokemon has fainted!");
+    if (v1.value > 0) {
+      var element = document.getElementById("attackone");
+      element.classList.add("strike");
+      setTimeout(() => {
+        element.classList.remove("strike");
+      }, 1700)
     }
+
+    if (v1.value > 0) {
+      var audio = document.getElementById("audioleftthree")
+      audio.play();
+    }
+
+    ishealthzero();
   }
 
   const calcMoveFourRight = async () => {
-    var v1 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v1 + (Math.random() * (20) + 15) << 0;
-    setPokemonHealthRight(document.getElementById("healthFront").value);
+    var v1 = document.getElementById('healthFront');
+    v1.value += (Math.random() * (20) + 15) << 0;
+    setPokemonHealthRight(v1.value);
 
-    var element = document.getElementById("attackone");
-    element.classList.add("heal");
-    setTimeout(() => {
-      element.classList.remove("heal");
-    }, 800)
+      var audio = document.getElementById("audiorightfour")
+      audio.play();
+
+      var element = document.getElementById("attackone");
+      element.classList.add("heal");
+      setTimeout(() => {
+        element.classList.remove("heal");
+      }, 2000)
   }
 
   const calcMoveFourLeft = async () => {
-    var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 + (Math.random() * (10) + 20) << 0;
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
+    var v1 = document.getElementById('healthBack');
+    v1.value += (Math.random() * (10) + 20) << 0;
+    setPokemonHealthLeft(v1.value);
+
+    var audio = document.getElementById("audioleftfour")
+    audio.play();
 
     var element = document.getElementById("attacktwo");
     element.classList.add("greenheal");
     setTimeout(() => {
       element.classList.remove("greenheal");
-    }, 400)
+    }, 2000)
   }
 
   const resetHealth = async () => {
-    var v1 = document.getElementById('healthBack').value;
-    document.getElementById("healthBack").value = v1 + (100 - v1);
-    var v2 = document.getElementById('healthFront').value;
-    document.getElementById("healthFront").value = v2 + (100 - v2);
+    var v1 = document.getElementById('healthBack');
+    v1.value = v1.value + (100 - v1.value);
+    var v2 = document.getElementById('healthFront');
+    v2.value = v2.value + (100 - v2.value);
 
     setPokemonHealthLeft(document.getElementById("healthBack").value);
     setPokemonHealthRight(document.getElementById("healthFront").value);
@@ -282,15 +331,18 @@ const App = () => {
                   <div className="divTable">
                     <div className="divTableBody">
                       {pokemonHealthRight}/100 &nbsp;&nbsp;
-                      <progress id="healthFront" value="100" max="100"></progress>
+                      <progress onChange={ishealthzero} id="healthFront" value="100" max="100"></progress>
 
                       <div className="divTableRow">
                         <button onClick={calcMoveOneRight} className="divTableCell1">{pokemonMove1Two}</button>
                         <button onClick={calcMoveTwoRight} className="divTableCell2">{pokemonMove2Two}</button>
+                        <audio id="audiorighttwo" src="http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"></audio>
                       </div>
                       <div className="divTableRow">
                         <button onClick={calcMoveThreeRight} className="divTableCell1">{pokemonMove3Two}</button>
+                        <audio id="audiorightthree" src="http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"></audio>
                         <button onClick={calcMoveFourRight} className="divTableCell2">{pokemonMove4Two}</button>
+                        <audio id="audiorightfour" src="http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"></audio>
                       </div>
 
                     </div>
@@ -333,15 +385,19 @@ const App = () => {
 
                     <div className="divTableBody">
                       {pokemonHealthLeft}/100 &nbsp;&nbsp;
-                      <progress id="healthBack" value="100" max="100"></progress>
+                      <progress onChange={ishealthzero} id="healthBack" value="100" max="100"></progress>
                       <div className="divTableRow">
                         <button onClick={calcMoveOneLeft} className="divTableCell1">{pokemonMove1}</button>
+                        <audio id="audioleftone" src="http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"></audio>
                         <button onClick={calcMoveTwoLeft} className="divTableCell2">{pokemonMove2}</button>
+                        <audio id="audiolefttwo" src="http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"></audio>
                       </div>
 
                       <div className="divTableRow">
                         <button onClick={calcMoveThreeLeft} className="divTableCell1">{pokemonMove3}</button>
+                        <audio id="audioleftthree" src="http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"></audio>
                         <button onClick={calcMoveFourLeft} className="divTableCell2">{pokemonMove4}</button>
+                        <audio id="audioleftfour" src="http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"></audio>
                       </div>
                     </div>
                   </div>
