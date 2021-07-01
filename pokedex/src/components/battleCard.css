@@ -1,0 +1,195 @@
+.containerleft {
+    margin: 0 0 0 auto;    
+}
+
+.containerright {
+    margin: 0 auto 0 0;
+}
+
+.pokemonPos {
+    width: 300px;
+    height: 160px;
+    margin: 0 auto;
+}
+
+progress {
+    background: lime;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+    background: lightblue;
+}
+
+progress::-moz-progress-bar {
+    background: lightcolor;
+}
+
+progress::-webkit-progress-value {
+    background: lime;
+}
+
+progress::-webkit-progress-bar {
+    background: gray;
+}
+
+.divTable {
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    width: 250px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 5px
+}
+
+.pokemonPos {
+    width: 300px;
+    height: 160px;
+    margin: 0 auto;
+}
+
+.pokemonBack {
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.pokemonFront {
+    margin-right: 150px;
+}
+
+.pokemonBack {
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.pokemonFront {
+    margin-right: 150px;
+    z-index: 1000;
+}
+
+.divTable {
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    width: 250px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 5px
+}
+
+.divTableRow {
+    padding-top: 5px;
+}
+
+.divTableCell1 {
+    margin-right: 5px;
+}
+
+.divTableCell2 {
+    margin-left: 5px;
+}
+
+.triangle {
+    margin-bottom: 362px;
+    width: 0;
+    height: 0;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 35px solid white;
+    position: absolute;
+}
+
+.tableNew {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.tableNew, td {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.fire {
+    background-color: rgb(245, 191, 191);
+    background-repeat: repeat;
+    background-size: 10px;
+    background-position: center;
+}
+
+.grass {
+    background-color: rgb(177, 238, 177);
+}
+
+.water {
+    background-color: skyblue;
+}
+
+.bug {
+    background-color: rgb(78, 180, 78);
+}
+
+.normal {
+    background-color: tan;
+}
+
+.electric {
+    background-color: rgb(240, 240, 73);
+}
+
+.poison {
+    background-color: rgb(155, 76, 155);
+    color: white;
+}
+
+.ground {
+    background-color: rgb(250, 187, 71);
+}
+
+.fairy {
+    background-color: rgb(236, 115, 232);
+}
+
+.fighting {
+    background-color: peachpuff;
+}
+
+.psychic {
+    background-color: rgb(109, 86, 131);
+    color: white;
+}
+
+.rock {
+    background-color: rgb(172, 130, 53);
+    color: white;
+}
+
+.ghost {
+    background-color: rgba(0, 0, 0, 0.300);
+}
+
+.ice {
+    background-color: rgb(89, 243, 243);
+}
+
+.dragon {
+    background-color: slategray;
+    color: white;
+}
+
+.dark {
+    background-color: rgb(80, 79, 79);
+    color: white;
+}
+
+.steel {
+    background-color: silver;
+}
+
+.flying {
+    background-color: antiquewhite;
+}

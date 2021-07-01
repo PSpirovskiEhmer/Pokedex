@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PokemonDetails from './components/PokemonDetails'
 import axios from 'axios'
+import BattleCard from './components/battleCard'
 import './App.css';
 
 const App = () => {
@@ -249,14 +250,14 @@ const App = () => {
     v1.value += (Math.random() * (20) + 15) << 0;
     setPokemonHealthRight(v1.value);
 
-      var audio = document.getElementById("audiorightfour")
-      audio.play();
+    var audio = document.getElementById("audiorightfour")
+    audio.play();
 
-      var element = document.getElementById("attackone");
-      element.classList.add("heal");
-      setTimeout(() => {
-        element.classList.remove("heal");
-      }, 2000)
+    var element = document.getElementById("attackone");
+    element.classList.add("heal");
+    setTimeout(() => {
+      element.classList.remove("heal");
+    }, 2000)
   }
 
   const calcMoveFourLeft = async () => {
@@ -305,7 +306,7 @@ const App = () => {
 
   return (
 
-    <div className="app-contaner">
+    <div>
       <div className="container-pokemon">
         <div className="app">
           <form>
@@ -322,113 +323,83 @@ const App = () => {
           <button className="button" onClick={handleSubmit}>Pokemon #2</button>
           <div className="alldiv">
 
-            {pokemonDataTwo.map((data) => {
-              return (
-                <div className="containerBattle1">
-                  <div className="pokemonPos">
-                    <img id="attackone" className="pokemonFront" src={data.sprites["front_shiny"]} alt="Couldn't load pokemon" />
-                  </div>
-                  <div className="divTable">
-                    <div className="divTableBody">
-                      {pokemonHealthRight}/100 &nbsp;&nbsp;
-                      <progress onChange={ishealthzero} id="healthFront" value="100" max="100"></progress>
+            {pokemonData.map((data, index) =>
+              <BattleCard
+                audio1={"audioleftone"}
+                audiolink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                audio2={"audiolefttwo"}
+                audiolink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"}
+                audio3={"audioleftthree"}
+                audiolink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"}
+                audio4={"audioleftfour"}
+                audiolink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"}
+                healthid={"healthBack"}
+                attackid={"attacktwo"}
+                imagepos={"pokemonBack"}
+                image={data.sprites["back_shiny"]}
+                health={pokemonHealthLeft}
+                zerocheck={ishealthzero}
+                checkmove1={calcMoveOneLeft}
+                move1={pokemonMove1}
+                checkmove2={calcMoveTwoLeft}
+                move2={pokemonMove2}
+                checkmove3={calcMoveThreeLeft}
+                move3={pokemonMove3}
+                checkmove4={calcMoveFourLeft}
+                move4={pokemonMove4}
+                cont={conteffectNew}
+                picture={data.sprites["front_default"]}
+                id={pokemonID}
+                name={pokemonName}
+                type={pokemonType}
+                hp={pokemonHP}
+                attack={pokemonAttack}
+                defense={pokemonDefense}
+                spatk={pokemonSpatk}
+                spdef={pokemonSpdef}
+                speed={pokemonSpeed}
+                key={index}
+              />)}
 
-                      <div className="divTableRow">
-                        <button onClick={calcMoveOneRight} className="divTableCell1">{pokemonMove1Two}</button>
-                        <button onClick={calcMoveTwoRight} className="divTableCell2">{pokemonMove2Two}</button>
-                        <audio id="audiorighttwo" src="http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"></audio>
-                      </div>
-                      <div className="divTableRow">
-                        <button onClick={calcMoveThreeRight} className="divTableCell1">{pokemonMove3Two}</button>
-                        <audio id="audiorightthree" src="http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"></audio>
-                        <button onClick={calcMoveFourRight} className="divTableCell2">{pokemonMove4Two}</button>
-                        <audio id="audiorightfour" src="http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"></audio>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className={conteffectNewTwo}>
-                    <div className="triangle"></div>
-                    <img src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
-                    <div className="detail-wrapperNew">
-                      <small>#0{pokemonIDTwo}</small>
-                      <h5>{pokemonNameTwo}</h5>
-                      <small>Type: {pokemonTypeTwo}</small>
-                      <table className="tableNew">
-                        <tbody>
-                          <tr>
-                            <td>HP: <br></br>{pokemonHPTwo}</td>
-                            <td>Attack: {pokemonAttackTwo}</td>
-                            <td>Defense: {pokemonDefenseTwo}</td>
-                          </tr>
-                          <tr>
-                            <td>Sp. Att: {pokemonSpatkTwo}</td>
-                            <td>Sp. Def: {pokemonSpdefTwo}</td>
-                            <td>Speed: <br></br>{pokemonSpeedTwo}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-
-            {pokemonData.map((data) => {
-              return (
-                <div className="containerBattle2">
-                  <div className="pokemonPos">
-                    <img id="attacktwo" className="pokemonBack" src={data.sprites["back_shiny"]} alt="Couldn't load pokemon" />
-                  </div>
-                  <div className="divTable">
-
-                    <div className="divTableBody">
-                      {pokemonHealthLeft}/100 &nbsp;&nbsp;
-                      <progress onChange={ishealthzero} id="healthBack" value="100" max="100"></progress>
-                      <div className="divTableRow">
-                        <button onClick={calcMoveOneLeft} className="divTableCell1">{pokemonMove1}</button>
-                        <audio id="audioleftone" src="http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"></audio>
-                        <button onClick={calcMoveTwoLeft} className="divTableCell2">{pokemonMove2}</button>
-                        <audio id="audiolefttwo" src="http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"></audio>
-                      </div>
-
-                      <div className="divTableRow">
-                        <button onClick={calcMoveThreeLeft} className="divTableCell1">{pokemonMove3}</button>
-                        <audio id="audioleftthree" src="http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"></audio>
-                        <button onClick={calcMoveFourLeft} className="divTableCell2">{pokemonMove4}</button>
-                        <audio id="audioleftfour" src="http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"></audio>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={conteffectNew}>
-                    <div className="triangle"></div>
-                    <img src={data.sprites["front_default"]} alt="Couldn't load pokemon" />
-                    <div className="detail-wrapperNew">
-                      <small>#0{pokemonID}</small>
-                      <h5>{pokemonName}</h5>
-                      <small>Type: {pokemonType}</small>
-                      <table className="tableNew">
-                        <tbody>
-                          <tr>
-                            <td>HP: <br></br>{pokemonHP}</td>
-                            <td>Attack: {pokemonAttack}</td>
-                            <td>Defense: {pokemonDefense}</td>
-                          </tr>
-                          <tr>
-                            <td>Sp. Att: {pokemonSpatk}</td>
-                            <td>Sp. Def: {pokemonSpdef}</td>
-                            <td>Speed: <br></br>{pokemonSpeed}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-
-
-              )
-            })}
+            {pokemonDataTwo.map((data, index) =>
+              <BattleCard
+                audio1={"audiorightone"}
+                audiolink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                audio2={"audiorighttwo"}
+                audiolink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"}
+                audio3={"audiorightthree"}
+                audiolink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"}
+                audio4={"audiorightfour"}
+                audiolink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"}
+                healthid={"healthFront"}
+                attackid={"attackone"}
+                imagepos={"pokemonFront"}
+                image={data.sprites["front_shiny"]}
+                health={pokemonHealthRight}
+                zerocheck={ishealthzero}
+                checkmove1={calcMoveOneRight}
+                move1={pokemonMove1Two}
+                checkmove2={calcMoveTwoRight}
+                move2={pokemonMove2Two}
+                checkmove3={calcMoveThreeRight}
+                move3={pokemonMove3Two}
+                checkmove4={calcMoveFourRight}
+                move4={pokemonMove4Two}
+                cont={conteffectNewTwo}
+                picture={data.sprites["front_default"]}
+                id={pokemonIDTwo}
+                name={pokemonNameTwo}
+                type={pokemonTypeTwo}
+                hp={pokemonHPTwo}
+                attack={pokemonAttackTwo}
+                defense={pokemonDefenseTwo}
+                spatk={pokemonSpatkTwo}
+                spdef={pokemonSpdefTwo}
+                speed={pokemonSpeedTwo}
+                key={index}
+                dinamicClass={true}
+                slash="http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"
+              />)}
           </div>
           <button onClick={resetHealth} className="reset">Reset HP</button>
         </div>
