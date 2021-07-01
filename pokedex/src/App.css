@@ -133,6 +133,7 @@ input {
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 .detailcontainerNew {
@@ -143,7 +144,7 @@ input {
     padding: 10px;
     margin: 40px auto 10px auto;
     border: 5px solid white;
-    border-radius: 5px;
+    border-radius: 15px;
     border-style: double;
     min-width: 160px;
     width: 200px;
@@ -162,7 +163,7 @@ input {
     margin: 40px auto 10px auto;
     border: 5px solid white;
     border-style: double;
-    border-radius: 5px;
+    border-radius: 15px;
     min-width: 160px;
     width: 200px;
     text-align: center;
