@@ -1,5 +1,5 @@
 import React from 'react'
-import './card.css';
+import './battleCard.css';
 
 const PokemonDetails = ({ id, image, name, type, hp, attack, defense, spatk, spdef, speed}) => {
     const conteffect = type + " detailcontainer";

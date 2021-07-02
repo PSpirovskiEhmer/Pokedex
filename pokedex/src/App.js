@@ -38,7 +38,7 @@ const App = () => {
   const [pokemonHealthLeft, setPokemonHealthLeft] = useState("")
   const [pokemonHealthRight, setPokemonHealthRight] = useState("")
   const conteffectNew = pokemonType + " detailcontainerNew";
-  const conteffectNewTwo = pokemonTypeTwo + " detailcontainerNewTwo";
+  const conteffectNewTwo = pokemonTypeTwo + " detailcontainerNew";
 
   const getPokemon = async () => {
     const toArray = [];
@@ -92,6 +92,10 @@ const App = () => {
 
   const handleChange = (e) => {
     setPokemon(e.target.value.toLowerCase())
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
   };
 
   const handleSubmit = (e) => {
@@ -309,7 +313,7 @@ const App = () => {
     <div>
       <div className="container-pokemon">
         <div className="app">
-          <form>
+          <form onSubmit={handleSubmitForm}>
             <label>
               <input
                 id="output"
