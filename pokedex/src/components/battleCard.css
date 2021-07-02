@@ -54,9 +54,13 @@ progress::-webkit-progress-bar {
 .pokemonBack {
     margin-top: 50px;
     margin-left: 150px;
+    position: relative;
+    z-index: 10;
 }
 .pokemonFront {
     margin-right: 150px;
+    position: relative;
+    z-index: 10;
 }
 .divTableRow {
     padding-top: 5px;
@@ -221,4 +225,17 @@ progress::-webkit-progress-bar {
 }
 .flying {
     background-color: antiquewhite;
+}
+.groundPosition{
+    margin-top: 25px;
+    margin-left: -262px;
+    position: absolute;
+    z-index: 1;
+}
+
+.groundPosition2{
+    margin-top: 75px;
+    margin-left: -118px;
+    position: absolute;
+    z-index: 1;
 }

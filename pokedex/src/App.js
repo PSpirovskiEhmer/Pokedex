@@ -3,6 +3,7 @@ import PokemonDetails from './components/PokemonDetails'
 import axios from 'axios'
 import BattleCard from './components/battleCard'
 import './App.css';
+import ground from './ground.png'
 
 const App = () => {
 
@@ -329,20 +330,22 @@ const App = () => {
 
             {pokemonData.map((data, index) =>
               <BattleCard
-                audio1={"audioleftone"}
-                audiolink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
-                audio2={"audiolefttwo"}
-                audiolink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"}
-                audio3={"audioleftthree"}
-                audiolink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"}
-                audio4={"audioleftfour"}
-                audiolink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"}
-                healthid={"healthBack"}
-                attackid={"attacktwo"}
-                imagepos={"pokemonBack"}
+                ground = {ground}
+                groundPosition = {"groundPosition2"}
+                attackAudio1={"audioleftone"}
+                attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                attackAudio2={"audiolefttwo"}
+                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"}
+                attackAudio3={"audioleftthree"}
+                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"}
+                attackAudio4={"audioleftfour"}
+                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"}
+                healthID={"healthBack"}
+                attackID={"attacktwo"}
+                imagePosition={"pokemonBack"}
                 image={data.sprites["back_shiny"]}
                 health={pokemonHealthLeft}
-                zerocheck={ishealthzero}
+                healthDepletedMethod={ishealthzero}
                 checkmove1={calcMoveOneLeft}
                 move1={pokemonMove1}
                 checkmove2={calcMoveTwoLeft}
@@ -367,20 +370,22 @@ const App = () => {
 
             {pokemonDataTwo.map((data, index) =>
               <BattleCard
-                audio1={"audiorightone"}
-                audiolink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
-                audio2={"audiorighttwo"}
-                audiolink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"}
-                audio3={"audiorightthree"}
-                audiolink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"}
-                audio4={"audiorightfour"}
-                audiolink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"}
-                healthid={"healthFront"}
-                attackid={"attackone"}
-                imagepos={"pokemonFront"}
+                groundPosition={"groundPosition"}
+                ground = {ground}  
+                attackAudio1={"audiorightone"}
+                attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                attackAudio2={"audiorighttwo"}
+                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"}
+                attackAudio3={"audiorightthree"}
+                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"}
+                attackAudio4={"audiorightfour"}
+                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"}
+                healthID={"healthFront"}
+                attackID={"attackone"}
+                imagePosition={"pokemonFront"}
                 image={data.sprites["front_shiny"]}
                 health={pokemonHealthRight}
-                zerocheck={ishealthzero}
+                healthDepletedMethod={ishealthzero}
                 checkmove1={calcMoveOneRight}
                 move1={pokemonMove1Two}
                 checkmove2={calcMoveTwoRight}
@@ -401,8 +406,6 @@ const App = () => {
                 spdef={pokemonSpdefTwo}
                 speed={pokemonSpeedTwo}
                 key={index}
-                dinamicClass={true}
-                slash="http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"
               />)}
           </div>
           <button onClick={resetHealth} className="reset">Reset HP</button>
