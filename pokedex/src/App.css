@@ -81,11 +81,6 @@ form {
     }
 }
 
-.attackRight {
-    animation-name: attackAnimationRight;
-    animation-duration: 0.7s;
-}
-
 @keyframes attackAnimationLeft {
     0% {
         transform: translate(0px, 0px);
@@ -98,32 +93,37 @@ form {
     }
 }
 
-.attackLeft {
+.rightMoveOneAnimation {
+    animation-name: attackAnimationRight;
+    animation-duration: 0.7s;
+}
+
+.leftMoveOneAnimation {
     animation-name: attackAnimationLeft;
     animation-duration: 0.7s;
 }
 
-.scratch {
+.rightMoveTwoAnimation {
     background-image: url('./scratch.png');
 }
 
-.heal {
+.rightMoveFourAnimation {
     background-image: url('./heal.png');
 }
 
-.greenheal {
+.leftMoveFourAnimation {
     background-image: url('./greenheal.png');
 }
 
-.bite {
+.leftMoveTwoAnimation {
     background-image: url('./bite.png');
 }
 
-.strike {
+.leftMoveThreeAnimation {
     background-image: url('./strike.png');
 }
 
-.tornado {
+.rightMoveThreeAnimation {
     background-image: url('./tornado.png');
 }
 

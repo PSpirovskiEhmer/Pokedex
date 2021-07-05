@@ -4,88 +4,89 @@ import axios from 'axios'
 import BattleCard from './components/battleCard'
 import './App.css';
 import ground from './ground.png'
+import ground1 from './ground1.png'
 
 const App = () => {
 
   const [name, setPokemon] = useState("");
-  const [pokemonData, setPokemonData] = useState([]);
-  const [pokemonName, setPokemonName] = useState("")
-  const [pokemonID, setPokemonID] = useState("")
-  const [pokemonType, setPokemonType] = useState("")
-  const [pokemonAttack, setPokemonAttack] = useState("")
-  const [pokemonDefense, setPokemonDefense] = useState("")
-  const [pokemonHP, setPokemonHP] = useState("")
-  const [pokemonSpatk, setPokemonSpatk] = useState("")
-  const [pokemonSpdef, setPokemonSpdef] = useState("")
-  const [pokemonSpeed, setPokemonSpeed] = useState("")
-  const [pokemonNameTwo, setPokemonNameTwo] = useState("")
-  const [pokemonIDTwo, setPokemonIDTwo] = useState("")
-  const [pokemonTypeTwo, setPokemonTypeTwo] = useState("")
-  const [pokemonAttackTwo, setPokemonAttackTwo] = useState("")
-  const [pokemonDefenseTwo, setPokemonDefenseTwo] = useState("")
-  const [pokemonHPTwo, setPokemonHPTwo] = useState("")
-  const [pokemonSpatkTwo, setPokemonSpatkTwo] = useState("")
-  const [pokemonSpdefTwo, setPokemonSpdefTwo] = useState("")
-  const [pokemonSpeedTwo, setPokemonSpeedTwo] = useState("")
-  const [pokemonMove1, setPokemonMove1] = useState("")
-  const [pokemonMove2, setPokemonMove2] = useState("")
-  const [pokemonMove3, setPokemonMove3] = useState("")
-  const [pokemonMove4, setPokemonMove4] = useState("")
-  const [pokemonDataTwo, setPokemonDataTwo] = useState([]);
-  const [pokemonMove1Two, setPokemonMove1Two] = useState("")
-  const [pokemonMove2Two, setPokemonMove2Two] = useState("")
-  const [pokemonMove3Two, setPokemonMove3Two] = useState("")
-  const [pokemonMove4Two, setPokemonMove4Two] = useState("")
+  const [pokemonDataLeft, setPokemonDataLeft] = useState([]);
+  const [pokemonNameLeft, setPokemonNameLeft] = useState("")
+  const [pokemonIDLeft, setPokemonIDLeft] = useState("")
+  const [pokemonTypeLeft, setPokemonTypeLeft] = useState("")
+  const [pokemonAttackLeft, setPokemonAttackLeft] = useState("")
+  const [pokemonDefenseLeft, setPokemonDefenseLeft] = useState("")
+  const [pokemonHPLeft, setPokemonHPLeft] = useState("")
+  const [pokemonSpAtkLeft, setPokemonSpAtkLeft] = useState("")
+  const [pokemonSpDefLeft, setPokemonSpDefLeft] = useState("")
+  const [pokemonSpeedLeft, setPokemonSpeedLeft] = useState("")
+  const [pokemonMoveOneLeft, setPokemonMoveOneLeft] = useState("")
+  const [pokemonMoveTwoLeft, setPokemonMoveTwoLeft] = useState("")
+  const [pokemonMoveThreeLeft, setPokemonMoveThreeLeft] = useState("")
+  const [pokemonMoveFourLeft, setPokemonMoveFourLeft] = useState("")
   const [pokemonHealthLeft, setPokemonHealthLeft] = useState("")
+  const [pokemonNameRight, setPokemonNameRight] = useState("")
+  const [pokemonIDRight, setPokemonIDRight] = useState("")
+  const [pokemonTypeRight, setPokemonTypeRight] = useState("")
+  const [pokemonAttackRight, setPokemonAttackRight] = useState("")
+  const [pokemonDefenseRight, setPokemonDefenseRight] = useState("")
+  const [pokemonHPRight, setPokemonHPRight] = useState("")
+  const [pokemonSpAtkRight, setPokemonSpAtkRight] = useState("")
+  const [pokemonSpDefRight, setPokemonSpDefRight] = useState("")
+  const [pokemonSpeedRight, setPokemonSpeedRight] = useState("")
+  const [pokemonDataRight, setPokemonDataRight] = useState([]);
+  const [pokemonMoveOneRight, setPokemonMoveOneRight] = useState("")
+  const [pokemonMoveTwoRight, setPokemonMoveTwoRight] = useState("")
+  const [pokemonMoveThreeRight, setPokemonMoveThreeRight] = useState("")
+  const [pokemonMoveFourRight, setPokemonMoveFourRight] = useState("")
   const [pokemonHealthRight, setPokemonHealthRight] = useState("")
-  const conteffectNew = pokemonType + " detailcontainerNew";
-  const conteffectNewTwo = pokemonTypeTwo + " detailcontainerNew";
+  const containerBackgroundLeft = pokemonTypeLeft + " detailcontainerNew";
+  const containerBackgroundRight = pokemonTypeRight + " detailcontainerNew";
 
-  const getPokemon = async () => {
+  const getPokemonLeft = async () => {
     const toArray = [];
     try {
       const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
       const res = await axios.get(url);
       toArray.push(res.data);
-      setPokemonName(res.data.name)
-      setPokemonID(res.data.id)
-      setPokemonType(res.data.types[0].type.name)
-      setPokemonHP(res.data.stats[0].base_stat)
-      setPokemonAttack(res.data.stats[1].base_stat)
-      setPokemonDefense(res.data.stats[2].base_stat)
-      setPokemonSpatk(res.data.stats[3].base_stat)
-      setPokemonSpdef(res.data.stats[4].base_stat)
-      setPokemonSpeed(res.data.stats[5].base_stat)
-      setPokemonMove1(res.data.moves[0].move.name)
-      setPokemonMove2(res.data.moves[1].move.name)
-      setPokemonMove3(res.data.moves[2].move.name)
-      setPokemonMove4(res.data.moves[3].move.name)
-      setPokemonData(toArray);
+      setPokemonNameLeft(res.data.name)
+      setPokemonIDLeft(res.data.id)
+      setPokemonTypeLeft(res.data.types[0].type.name)
+      setPokemonHPLeft(res.data.stats[0].base_stat)
+      setPokemonAttackLeft(res.data.stats[1].base_stat)
+      setPokemonDefenseLeft(res.data.stats[2].base_stat)
+      setPokemonSpAtkLeft(res.data.stats[3].base_stat)
+      setPokemonSpDefLeft(res.data.stats[4].base_stat)
+      setPokemonSpeedLeft(res.data.stats[5].base_stat)
+      setPokemonMoveOneLeft(res.data.moves[0].move.name)
+      setPokemonMoveTwoLeft(res.data.moves[1].move.name)
+      setPokemonMoveThreeLeft(res.data.moves[2].move.name)
+      setPokemonMoveFourLeft(res.data.moves[3].move.name)
+      setPokemonDataLeft(toArray);
     } catch (e) {
       console.log(e)
     }
   }
 
-  const getPokemonTwo = async () => {
+  const getPokemonRight = async () => {
     const toArray = [];
     try {
       const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
       const res = await axios.get(url);
       toArray.push(res.data);
-      setPokemonNameTwo(res.data.name)
-      setPokemonIDTwo(res.data.id)
-      setPokemonHPTwo(res.data.stats[0].base_stat)
-      setPokemonAttackTwo(res.data.stats[1].base_stat)
-      setPokemonDefenseTwo(res.data.stats[2].base_stat)
-      setPokemonSpatkTwo(res.data.stats[3].base_stat)
-      setPokemonSpdefTwo(res.data.stats[4].base_stat)
-      setPokemonSpeedTwo(res.data.stats[5].base_stat)
-      setPokemonTypeTwo(res.data.types[0].type.name)
-      setPokemonMove1Two(res.data.moves[0].move.name)
-      setPokemonMove2Two(res.data.moves[1].move.name)
-      setPokemonMove3Two(res.data.moves[2].move.name)
-      setPokemonMove4Two(res.data.moves[3].move.name)
-      setPokemonDataTwo(toArray);
+      setPokemonNameRight(res.data.name)
+      setPokemonIDRight(res.data.id)
+      setPokemonHPRight(res.data.stats[0].base_stat)
+      setPokemonAttackRight(res.data.stats[1].base_stat)
+      setPokemonDefenseRight(res.data.stats[2].base_stat)
+      setPokemonSpAtkRight(res.data.stats[3].base_stat)
+      setPokemonSpDefRight(res.data.stats[4].base_stat)
+      setPokemonSpeedRight(res.data.stats[5].base_stat)
+      setPokemonTypeRight(res.data.types[0].type.name)
+      setPokemonMoveOneRight(res.data.moves[0].move.name)
+      setPokemonMoveTwoRight(res.data.moves[1].move.name)
+      setPokemonMoveThreeRight(res.data.moves[2].move.name)
+      setPokemonMoveFourRight(res.data.moves[3].move.name)
+      setPokemonDataRight(toArray);
     } catch (e) {
       console.log(e)
     }
@@ -99,21 +100,21 @@ const App = () => {
     e.preventDefault();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitLeft = (e) => {
     e.preventDefault();
-    getPokemon();
+    getPokemonLeft();
     document.getElementById("output").value = "";
   };
 
-  const handleSubmitTwo = (e) => {
+  const handleSubmitRight = (e) => {
     e.preventDefault();
-    getPokemonTwo();
+    getPokemonRight();
     document.getElementById("output").value = "";
   };
 
-  const ishealthzero = () => {
-    var v1 = document.getElementById('healthFront');
-    var v2 = document.getElementById('healthBack');
+  const HealthZeroCheck = () => {
+    var v1 = document.getElementById('healthbarRight');
+    var v2 = document.getElementById('healthbarLeft');
     if (v1.value === 0) {
       alert("You win! The opposing pokemon has fainted!");
       resetHealth();
@@ -125,169 +126,169 @@ const App = () => {
   }
 
   const calcMoveOneRight = async () => {
-    var v1 = document.getElementById('healthBack');
+    var v1 = document.getElementById('healthbarLeft');
     v1.value -= (Math.random() * (7) + 7) << 0;
     setPokemonHealthLeft(v1.value);
 
     if (v1.value > 0) {
-      var element = document.getElementById("attackone");
-      element.classList.add("attackRight");
+      var element = document.getElementById("attackAnimationRight");
+      element.classList.add("rightMoveOneAnimation");
       setTimeout(() => {
-        element.classList.remove("attackRight");
+        element.classList.remove("rightMoveOneAnimation");
       }, 700)
     }
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audioleftone")
+      var audio = document.getElementById("audioLeftMoveOne")
       audio.play();
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveOneLeft = async () => {
-    var v1 = document.getElementById('healthFront');
+    var v1 = document.getElementById('healthbarRight');
     v1.value -= (Math.random() * (12) + 12) << 0;
     setPokemonHealthRight(v1.value);
 
     if (v1.value > 0) {
-      var element = document.getElementById("attacktwo");
-      element.classList.add("attackLeft");
+      var element = document.getElementById("attackAnimationLeft");
+      element.classList.add("leftMoveOneAnimation");
       setTimeout(() => {
-        element.classList.remove("attackLeft");
+        element.classList.remove("leftMoveOneAnimation");
       }, 700)
     }
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audioleftone")
+      var audio = document.getElementById("audioLeftMoveOne")
       audio.play();
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveTwoRight = async () => {
-    var v1 = document.getElementById('healthBack');
+    var v1 = document.getElementById('healthbarLeft');
     v1.value -= (Math.random() * (16) + 16) << 0;
     setPokemonHealthLeft(v1.value);
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audiorighttwo")
+      var audio = document.getElementById("audioRightMoveTwo")
       audio.play();
     }
 
     if (v1.value > 0) {
-      var element = document.getElementById("attacktwo");
-      element.classList.add("scratch");
+      var element = document.getElementById("attackAnimationLeft");
+      element.classList.add("rightMoveTwoAnimation");
       setTimeout(() => {
-        element.classList.remove("scratch");
+        element.classList.remove("rightMoveTwoAnimation");
       }, 400)
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveTwoLeft = async () => {
-    var v1 = document.getElementById('healthFront');
+    var v1 = document.getElementById('healthbarRight');
     v1.value -= (Math.random() * (6) + 6) << 0;
     setPokemonHealthRight(v1.value);
 
     if (v1.value > 0) {
-      var element = document.getElementById("attackone");
-      element.classList.add("bite");
+      var element = document.getElementById("attackAnimationRight");
+      element.classList.add("leftMoveTwoAnimation");
       setTimeout(() => {
-        element.classList.remove("bite");
+        element.classList.remove("leftMoveTwoAnimation");
       }, 400)
     }
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audiolefttwo")
+      var audio = document.getElementById("audioLeftMoveTwo")
       audio.play();
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveThreeRight = async () => {
-    var v1 = document.getElementById('healthBack');
+    var v1 = document.getElementById('healthbarLeft');
     v1.value -= (Math.random() * (8) + 8) << 0;
     setPokemonHealthLeft(v1.value);
 
     if (v1.value > 0) {
-      var element = document.getElementById("attacktwo");
-      element.classList.add("tornado");
+      var element = document.getElementById("attackAnimationLeft");
+      element.classList.add("rightMoveThreeAnimation");
       setTimeout(() => {
-        element.classList.remove("tornado");
+        element.classList.remove("rightMoveThreeAnimation");
       }, 2000)
     }
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audiorightthree")
+      var audio = document.getElementById("audioRightMoveThree")
       audio.play();
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveThreeLeft = async () => {
-    var v1 = document.getElementById('healthFront');
+    var v1 = document.getElementById('healthbarRight');
     v1.value -= (Math.random() * (19) + 19) << 0;
     setPokemonHealthRight(v1.value);
 
     if (v1.value > 0) {
-      var element = document.getElementById("attackone");
-      element.classList.add("strike");
+      var element = document.getElementById("attackAnimationRight");
+      element.classList.add("leftMoveThreeAnimation");
       setTimeout(() => {
-        element.classList.remove("strike");
+        element.classList.remove("leftMoveThreeAnimation");
       }, 1700)
     }
 
     if (v1.value > 0) {
-      var audio = document.getElementById("audioleftthree")
+      var audio = document.getElementById("audioLeftMoveThree")
       audio.play();
     }
 
-    ishealthzero();
+    HealthZeroCheck();
   }
 
   const calcMoveFourRight = async () => {
-    var v1 = document.getElementById('healthFront');
+    var v1 = document.getElementById('healthbarRight');
     v1.value += (Math.random() * (20) + 15) << 0;
     setPokemonHealthRight(v1.value);
 
-    var audio = document.getElementById("audiorightfour")
+    var audio = document.getElementById("audioRightMoveFour")
     audio.play();
 
-    var element = document.getElementById("attackone");
-    element.classList.add("heal");
+    var element = document.getElementById("attackAnimationRight");
+    element.classList.add("rightMoveFourAnimation");
     setTimeout(() => {
-      element.classList.remove("heal");
+      element.classList.remove("rightMoveFourAnimation");
     }, 2000)
   }
 
   const calcMoveFourLeft = async () => {
-    var v1 = document.getElementById('healthBack');
+    var v1 = document.getElementById('healthbarLeft');
     v1.value += (Math.random() * (10) + 20) << 0;
     setPokemonHealthLeft(v1.value);
 
-    var audio = document.getElementById("audioleftfour")
+    var audio = document.getElementById("audioLeftMoveFour")
     audio.play();
 
-    var element = document.getElementById("attacktwo");
-    element.classList.add("greenheal");
+    var element = document.getElementById("attackAnimationLeft");
+    element.classList.add("leftMoveFourAnimation");
     setTimeout(() => {
-      element.classList.remove("greenheal");
+      element.classList.remove("leftMoveFourAnimation");
     }, 2000)
   }
 
   const resetHealth = async () => {
-    var v1 = document.getElementById('healthBack');
+    var v1 = document.getElementById('healthbarLeft');
     v1.value = v1.value + (100 - v1.value);
-    var v2 = document.getElementById('healthFront');
+    var v2 = document.getElementById('healthbarRight');
     v2.value = v2.value + (100 - v2.value);
 
-    setPokemonHealthLeft(document.getElementById("healthBack").value);
-    setPokemonHealthRight(document.getElementById("healthFront").value);
+    setPokemonHealthLeft(document.getElementById("healthbarLeft").value);
+    setPokemonHealthRight(document.getElementById("healthbarRight").value);
   }
 
   const [allPokemon, setAllPokemon] = useState([])
@@ -324,87 +325,87 @@ const App = () => {
               />
             </label>
           </form>
-          <button className="button" onClick={handleSubmitTwo}>Pokemon #1</button>
-          <button className="button" onClick={handleSubmit}>Pokemon #2</button>
+          <button className="button" onClick={handleSubmitRight}>Pokemon #1</button>
+          <button className="button" onClick={handleSubmitLeft}>Pokemon #2</button>
           <div className="alldiv">
 
-            {pokemonData.map((data, index) =>
+            {pokemonDataLeft.map((data, index) =>
               <BattleCard
-                ground = {ground}
+                ground = {ground1}
                 groundPosition = {"groundPosition2"}
-                attackAudio1={"audioleftone"}
+                attackAudio1={"audioLeftMoveOne"}
                 attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
-                attackAudio2={"audiolefttwo"}
-                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/bite.mp3"}
-                attackAudio3={"audioleftthree"}
+                attackAudio2={"audioLeftMoveTwo"}
+                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/leftMoveTwoAnimation.mp3"}
+                attackAudio3={"audioLeftMoveThree"}
                 attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"}
-                attackAudio4={"audioleftfour"}
-                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/heal.wav"}
-                healthID={"healthBack"}
-                attackID={"attacktwo"}
+                attackAudio4={"audioLeftMoveFour"}
+                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/rightMoveFourAnimation.wav"}
+                healthID={"healthbarLeft"}
+                attackID={"attackAnimationLeft"}
                 imagePosition={"pokemonBack"}
                 image={data.sprites["back_shiny"]}
                 health={pokemonHealthLeft}
-                healthDepletedMethod={ishealthzero}
-                checkmove1={calcMoveOneLeft}
-                move1={pokemonMove1}
-                checkmove2={calcMoveTwoLeft}
-                move2={pokemonMove2}
-                checkmove3={calcMoveThreeLeft}
-                move3={pokemonMove3}
-                checkmove4={calcMoveFourLeft}
-                move4={pokemonMove4}
-                cont={conteffectNew}
+                healthDepletedMethod={HealthZeroCheck}
+                moveOneCalculation={calcMoveOneLeft}
+                moveOne={pokemonMoveOneLeft}
+                moveTwoCalculation={calcMoveTwoLeft}
+                moveTwo={pokemonMoveTwoLeft}
+                moveThreeCalculation={calcMoveThreeLeft}
+                moveThree={pokemonMoveThreeLeft}
+                moveFourCalculation={calcMoveFourLeft}
+                moveFour={pokemonMoveFourLeft}
+                container={containerBackgroundLeft}
                 picture={data.sprites["front_default"]}
-                id={pokemonID}
-                name={pokemonName}
-                type={pokemonType}
-                hp={pokemonHP}
-                attack={pokemonAttack}
-                defense={pokemonDefense}
-                spatk={pokemonSpatk}
-                spdef={pokemonSpdef}
-                speed={pokemonSpeed}
+                id={pokemonIDLeft}
+                name={pokemonNameLeft}
+                type={pokemonTypeLeft}
+                hp={pokemonHPLeft}
+                attack={pokemonAttackLeft}
+                defense={pokemonDefenseLeft}
+                spatk={pokemonSpAtkLeft}
+                spdef={pokemonSpDefLeft}
+                speed={pokemonSpeedLeft}
                 key={index}
               />)}
 
-            {pokemonDataTwo.map((data, index) =>
+            {pokemonDataRight.map((data, index) =>
               <BattleCard
                 groundPosition={"groundPosition"}
                 ground = {ground}  
-                attackAudio1={"audiorightone"}
+                attackAudio1={"audioRightMoveOne"}
                 attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
-                attackAudio2={"audiorighttwo"}
+                attackAudio2={"audioRightMoveTwo"}
                 attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"}
-                attackAudio3={"audiorightthree"}
-                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/tornado.wav"}
-                attackAudio4={"audiorightfour"}
+                attackAudio3={"audioRightMoveThree"}
+                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/rightMoveThreeAnimation.wav"}
+                attackAudio4={"audioRightMoveFour"}
                 attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"}
-                healthID={"healthFront"}
-                attackID={"attackone"}
+                healthID={"healthbarRight"}
+                attackID={"attackAnimationRight"}
                 imagePosition={"pokemonFront"}
                 image={data.sprites["front_shiny"]}
                 health={pokemonHealthRight}
-                healthDepletedMethod={ishealthzero}
-                checkmove1={calcMoveOneRight}
-                move1={pokemonMove1Two}
-                checkmove2={calcMoveTwoRight}
-                move2={pokemonMove2Two}
-                checkmove3={calcMoveThreeRight}
-                move3={pokemonMove3Two}
-                checkmove4={calcMoveFourRight}
-                move4={pokemonMove4Two}
-                cont={conteffectNewTwo}
+                healthDepletedMethod={HealthZeroCheck}
+                moveOneCalculation={calcMoveOneRight}
+                moveOne={pokemonMoveOneRight}
+                moveTwoCalculation={calcMoveTwoRight}
+                moveTwo={pokemonMoveTwoRight}
+                moveThreeCalculation={calcMoveThreeRight}
+                moveThree={pokemonMoveThreeRight}
+                moveFourCalculation={calcMoveFourRight}
+                moveFour={pokemonMoveFourRight}
+                container={containerBackgroundRight}
                 picture={data.sprites["front_default"]}
-                id={pokemonIDTwo}
-                name={pokemonNameTwo}
-                type={pokemonTypeTwo}
-                hp={pokemonHPTwo}
-                attack={pokemonAttackTwo}
-                defense={pokemonDefenseTwo}
-                spatk={pokemonSpatkTwo}
-                spdef={pokemonSpdefTwo}
-                speed={pokemonSpeedTwo}
+                id={pokemonIDRight}
+                name={pokemonNameRight}
+                type={pokemonTypeRight}
+                hp={pokemonHPRight}
+                attack={pokemonAttackRight}
+                defense={pokemonDefenseRight}
+                spatk={pokemonSpAtkRight}
+                spdef={pokemonSpDefRight}
+                speed={pokemonSpeedRight}
                 key={index}
               />)}
           </div>

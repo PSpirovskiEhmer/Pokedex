@@ -13,7 +13,7 @@ body {
 .containerright {
     margin: 0 auto 0 0;
 }
-.pokemonPos {
+.pokemonPosition {
     width: 300px;
     height: 160px;
     margin: 0 auto;
@@ -46,7 +46,7 @@ progress::-webkit-progress-bar {
     background-color: white;
     padding: 5px;
 }
-.pokemonPos {
+.pokemonPosition {
     width: 300px;
     height: 160px;
     margin: 0 auto;
@@ -158,10 +158,29 @@ progress::-webkit-progress-bar {
     font-size: 15px;
 }
 
+.divTableCell1{
+    width: 100px;
+    max-width: 100px;
+    text-transform: capitalize;
+    background-color: rgb(233, 231, 231);
+}
+
+.divTableCell2{
+    width: 100px;
+    max-width: 100px;
+    text-transform: capitalize;
+    background-color: rgb(233, 231, 231);
+}
+
+.divTableCell1 :hover{
+    opacity: 1;
+}
+
 .table, td{
     border-color: black;
     border-width: 1px;
     border-style: solid;
+    background-color: rgb(233, 231, 231);
 }
 
 .fire {
@@ -227,15 +246,15 @@ progress::-webkit-progress-bar {
     background-color: antiquewhite;
 }
 .groundPosition{
-    margin-top: 25px;
-    margin-left: -262px;
+    margin-top: 30px;
+    margin-left: -290px;
     position: absolute;
     z-index: 1;
 }
 
 .groundPosition2{
-    margin-top: 75px;
-    margin-left: -118px;
+    margin-top: 80px;
+    margin-left: -145px;
     position: absolute;
     z-index: 1;
 }
