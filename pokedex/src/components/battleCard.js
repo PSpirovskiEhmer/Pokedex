@@ -1,7 +1,8 @@
 import React from 'react'
 import './battleCard.css'
 
-const BattleCard = ({ groundID, groundPosition, ground, attackID, attackAudio1, attackAudio2, attackAudio3, attackAudio4, attackAudioLink1, attackAudioLink2, attackAudioLink3, attackAudioLink4, healthID, imagePosition, image, health, healthDepletedMethod, moveOneCalculation, moveOne, moveTwoCalculation, moveTwo, moveThreeCalculation, moveThree, moveFourCalculation, moveFour, container, picture, id, name, type, attack, defense, spatk, spdef, hp, speed }) => {
+const BattleCard = ({groundID, groundPosition, ground, attackID, attackAudio1, attackAudio2, attackAudio3, attackAudio4, attackAudioLink1, attackAudioLink2, attackAudioLink3, attackAudioLink4, healthID, imagePosition, image, health, healthDepletedMethod, moveOneCalculation, moveOne, moveTwoCalculation, moveTwo, moveThreeCalculation, moveThree, moveFourCalculation, moveFour, container, picture, id, name, type, attack, defense, spatk, spdef, hp, speed }) => {
+
     return (
         <div className="divPokemon">
             <div className="pokemonPosition">
@@ -12,18 +13,18 @@ const BattleCard = ({ groundID, groundPosition, ground, attackID, attackAudio1, 
 
                 <div className="divTableBody">
                     {health}/100 &nbsp;&nbsp;
-                    <progress onChange={healthDepletedMethod} id={healthID} value="100" max="100"></progress>
+                    <progress id={healthID} value="100" max="100"></progress>
                     <div className="divTableRow">
-                        <button onClick={moveOneCalculation} className="divTableCell1">{moveOne}</button>
+                        <button onClick={moveOneCalculation} className="divTableCell1">{moveOne}&nbsp;&nbsp;/25</button>
                         <audio id={attackAudio1} src={attackAudioLink1}></audio>
-                        <button onClick={moveTwoCalculation} className="divTableCell2">{moveTwo}</button>
+                        <button onClick={moveTwoCalculation} className="divTableCell2">{moveTwo}&nbsp;&nbsp;/10</button>
                         <audio id={attackAudio2} src={attackAudioLink2}></audio>
                     </div>
 
                     <div className="divTableRow">
-                        <button onClick={moveThreeCalculation} className="divTableCell1">{moveThree}</button>
+                        <button onClick={moveThreeCalculation} className="divTableCell1">{moveThree}&nbsp;&nbsp;/5</button>
                         <audio id={attackAudio3} src={attackAudioLink3}></audio>
-                        <button onClick={moveFourCalculation} className="divTableCell2">{moveFour}</button>
+                        <button onClick={moveFourCalculation} className="divTableCell2">{moveFour}&nbsp;&nbsp;/5</button>
                         <audio id={attackAudio4} src={attackAudioLink4}></audio>
                     </div>
                 </div>

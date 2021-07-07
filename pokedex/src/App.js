@@ -2,9 +2,18 @@ import React, { useState } from 'react'
 import PokemonDetails from './components/PokemonDetails'
 import axios from 'axios'
 import BattleCard from './components/battleCard'
+import AttackComponent from './components/calcMoves'
 import './App.css';
 import ground from './ground.png'
 import ground1 from './ground1.png'
+import woosh from './woosh.flac'
+import bite from './bite.mp3'
+import heal from './heal.wav'
+import holy from './holy.wav'
+import slash from './slash.ogg'
+import thunder from './thunder.wav'
+import tornado from './tornado.wav'
+
 
 const App = () => {
 
@@ -116,12 +125,16 @@ const App = () => {
     var v1 = document.getElementById('healthbarRight');
     var v2 = document.getElementById('healthbarLeft');
     if (v1.value === 0) {
-      alert("You win! The opposing pokemon has fainted!");
-      resetHealth();
+      setTimeout(() => {
+        alert("You win! The opposing pokemon has fainted!");
+        resetHealth();
+      }, 100)
     }
     if (v2.value === 0) {
-      alert("You win! The opposing pokemon has fainted!");
-      resetHealth();
+      setTimeout(() => {
+        alert("You win! The opposing pokemon has fainted!");
+        resetHealth();
+      }, 50)
     }
   }
 
@@ -331,22 +344,21 @@ const App = () => {
 
             {pokemonDataLeft.map((data, index) =>
               <BattleCard
-                ground = {ground1}
-                groundPosition = {"groundPosition2"}
+                ground={ground1}
+                groundPosition={"groundPosition2"}
                 attackAudio1={"audioLeftMoveOne"}
-                attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                attackAudioLink1={woosh}
                 attackAudio2={"audioLeftMoveTwo"}
-                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/leftMoveTwoAnimation.mp3"}
+                attackAudioLink2={bite}
                 attackAudio3={"audioLeftMoveThree"}
-                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/thunder.wav"}
+                attackAudioLink3={thunder}
                 attackAudio4={"audioLeftMoveFour"}
-                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/rightMoveFourAnimation.wav"}
+                attackAudioLink4={heal}
                 healthID={"healthbarLeft"}
                 attackID={"attackAnimationLeft"}
                 imagePosition={"pokemonBack"}
                 image={data.sprites["back_shiny"]}
                 health={pokemonHealthLeft}
-                healthDepletedMethod={HealthZeroCheck}
                 moveOneCalculation={calcMoveOneLeft}
                 moveOne={pokemonMoveOneLeft}
                 moveTwoCalculation={calcMoveTwoLeft}
@@ -372,21 +384,20 @@ const App = () => {
             {pokemonDataRight.map((data, index) =>
               <BattleCard
                 groundPosition={"groundPosition"}
-                ground = {ground}  
+                ground={ground}
                 attackAudio1={"audioRightMoveOne"}
-                attackAudioLink1={"http://127.0.0.1:5500/Pokedex/pokedex/src/woosh.flac"}
+                attackAudioLink1={woosh}
                 attackAudio2={"audioRightMoveTwo"}
-                attackAudioLink2={"http://127.0.0.1:5500/Pokedex/pokedex/src/slash.ogg"}
+                attackAudioLink2={slash}
                 attackAudio3={"audioRightMoveThree"}
-                attackAudioLink3={"http://127.0.0.1:5500/Pokedex/pokedex/src/rightMoveThreeAnimation.wav"}
+                attackAudioLink3={tornado}
                 attackAudio4={"audioRightMoveFour"}
-                attackAudioLink4={"http://127.0.0.1:5500/Pokedex/pokedex/src/holy.wav"}
+                attackAudioLink4={holy}
                 healthID={"healthbarRight"}
                 attackID={"attackAnimationRight"}
                 imagePosition={"pokemonFront"}
                 image={data.sprites["front_shiny"]}
                 health={pokemonHealthRight}
-                healthDepletedMethod={HealthZeroCheck}
                 moveOneCalculation={calcMoveOneRight}
                 moveOne={pokemonMoveOneRight}
                 moveTwoCalculation={calcMoveTwoRight}
