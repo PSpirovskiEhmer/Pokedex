@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PokemonDetails from './components/PokemonDetails'
 import axios from 'axios'
 import BattleCard from './components/battleCard'
-import AttackComponent from './components/calcMoves'
 import './App.css';
 import ground from './ground.png'
 import ground1 from './ground1.png'
@@ -48,6 +47,14 @@ const App = () => {
   const [pokemonMoveThreeRight, setPokemonMoveThreeRight] = useState("")
   const [pokemonMoveFourRight, setPokemonMoveFourRight] = useState("")
   const [pokemonHealthRight, setPokemonHealthRight] = useState("")
+  const [onePPCountRight, setOnePPCountRight] = useState("")
+  const [twoPPCountRight, setTwoPPCountRight] = useState("")
+  const [threePPCountRight, setThreePPCountRight] = useState("")
+  const [fourPPCountRight, setFourPPCountRight] = useState("")
+  const [onePPCountLeft, setOnePPCountLeft] = useState("")
+  const [twoPPCountLeft, setTwoPPCountLeft] = useState("")
+  const [threePPCountLeft, setThreePPCountLeft] = useState("")
+  const [fourPPCountLeft, setFourPPCountLeft] = useState("")
   const containerBackgroundLeft = pokemonTypeLeft + " detailcontainerNew";
   const containerBackgroundRight = pokemonTypeRight + " detailcontainerNew";
 
@@ -128,7 +135,7 @@ const App = () => {
       setTimeout(() => {
         alert("You win! The opposing pokemon has fainted!");
         resetHealth();
-      }, 100)
+      }, 50)
     }
     if (v2.value === 0) {
       setTimeout(() => {
@@ -157,6 +164,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+
+    var oneRight = document.getElementById("buttonOneRightID")
+
+    if (oneRight.value > 0) {
+      oneRight.value -= 1;
+      setOnePPCountRight(oneRight.value)
+    }
+    if (oneRight.value == 0) {
+      document.getElementById("buttonOneRightID").disabled = true;
+    }
   }
 
   const calcMoveOneLeft = async () => {
@@ -178,6 +195,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+
+    var oneLeft = document.getElementById("buttonOneLeftID")
+
+    if (oneLeft.value > 0) {
+      oneLeft.value -= 1;
+      setOnePPCountLeft(oneLeft.value)
+    }
+    if (oneLeft.value == 0) {
+      document.getElementById("buttonOneLeftID").disabled = true;
+    }
   }
 
   const calcMoveTwoRight = async () => {
@@ -199,6 +226,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+
+    var twoRight = document.getElementById("buttonTwoRightID")
+
+    if (twoRight.value > 0) {
+      twoRight.value -= 1;
+      setTwoPPCountRight(twoRight.value)
+    }
+    if (twoRight.value == 0) {
+      document.getElementById("buttonTwoRightID").disabled = true;
+    }
   }
 
   const calcMoveTwoLeft = async () => {
@@ -220,6 +257,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+
+    var twoLeft = document.getElementById("buttonTwoLeftID")
+
+    if (twoLeft.value > 0) {
+      twoLeft.value -= 1;
+      setTwoPPCountLeft(twoLeft.value)
+    }
+    if (twoLeft.value == 0) {
+      document.getElementById("buttonTwoLeftID").disabled = true;
+    }
   }
 
   const calcMoveThreeRight = async () => {
@@ -241,6 +288,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+    
+    var threeRight = document.getElementById("buttonThreeRightID")
+
+    if (threeRight.value > 0) {
+      threeRight.value -= 1;
+      setThreePPCountRight(threeRight.value)
+    }
+    if (threeRight.value == 0) {
+      document.getElementById("buttonThreeRightID").disabled = true;
+    }
   }
 
   const calcMoveThreeLeft = async () => {
@@ -262,6 +319,16 @@ const App = () => {
     }
 
     HealthZeroCheck();
+
+    var threeLeft = document.getElementById("buttonThreeLeftID")
+
+    if (threeLeft.value > 0) {
+      threeLeft.value -= 1;
+      setThreePPCountLeft(threeLeft.value)
+    }
+    if (threeLeft.value == 0) {
+      document.getElementById("buttonThreeLeftID").disabled = true;
+    }
   }
 
   const calcMoveFourRight = async () => {
@@ -277,6 +344,16 @@ const App = () => {
     setTimeout(() => {
       element.classList.remove("rightMoveFourAnimation");
     }, 2000)
+
+    var fourRight = document.getElementById("buttonFourRightID")
+
+    if (fourRight.value > 0) {
+      fourRight.value -= 1;
+      setFourPPCountRight(fourRight.value)
+    }
+    if (fourRight.value == 0) {
+      document.getElementById("buttonFourRightID").disabled = true;
+    }
   }
 
   const calcMoveFourLeft = async () => {
@@ -292,14 +369,65 @@ const App = () => {
     setTimeout(() => {
       element.classList.remove("leftMoveFourAnimation");
     }, 2000)
+
+    var fourLeft = document.getElementById("buttonFourLeftID")
+
+    if (fourLeft.value > 0) {
+      fourLeft.value -= 1;
+      setFourPPCountLeft(fourLeft.value)
+    }
+    if (fourLeft.value == 0) {
+      document.getElementById("buttonFourLeftID").disabled = true;
+    }
   }
 
   const resetHealth = async () => {
     var v1 = document.getElementById('healthbarLeft');
     v1.value = v1.value + (100 - v1.value);
+
     var v2 = document.getElementById('healthbarRight');
     v2.value = v2.value + (100 - v2.value);
 
+    var oneRight = document.getElementById("buttonOneRightID");
+    oneRight.value = 25;
+    document.getElementById("buttonOneRightID").disabled = false;
+
+    var twoRight = document.getElementById("buttonTwoRightID");
+    twoRight.value = 5;
+    document.getElementById("buttonTwoRightID").disabled = false;
+
+    var threeRight = document.getElementById("buttonThreeRightID");
+    threeRight.value = 10;
+    document.getElementById("buttonThreeRightID").disabled = false;
+
+    var fourRight = document.getElementById("buttonFourRightID");
+    fourRight.value = 5;
+    document.getElementById("buttonFourRightID").disabled = false;
+
+    var oneLeft = document.getElementById("buttonOneLeftID");
+    oneLeft.value = 25;
+    document.getElementById("buttonOneLeftID").disabled = false;
+
+    var twoLeft = document.getElementById("buttonTwoLeftID");
+    twoLeft.value = 10;
+    document.getElementById("buttonTwoLeftID").disabled = false;
+
+    var threeLeft = document.getElementById("buttonThreeLeftID");
+    threeLeft.value = 5;
+    document.getElementById("buttonThreeLeftID").disabled = false;
+
+    var fourLeft = document.getElementById("buttonFourLeftID");
+    fourLeft.value = 5;
+    document.getElementById("buttonFourLeftID").disabled = false;
+
+    setOnePPCountRight(oneRight.value);
+    setTwoPPCountRight(twoRight.value);
+    setThreePPCountRight(threeRight.value);
+    setFourPPCountRight(fourRight.value);
+    setOnePPCountLeft(oneLeft.value);
+    setTwoPPCountLeft(twoLeft.value);
+    setThreePPCountLeft(threeLeft.value);
+    setFourPPCountLeft(fourLeft.value);
     setPokemonHealthLeft(document.getElementById("healthbarLeft").value);
     setPokemonHealthRight(document.getElementById("healthbarRight").value);
   }
@@ -378,6 +506,16 @@ const App = () => {
                 spatk={pokemonSpAtkLeft}
                 spdef={pokemonSpDefLeft}
                 speed={pokemonSpeedLeft}
+                onePP={onePPCountLeft}
+                attackOneID={"buttonOneLeftID"}
+                twoPP={twoPPCountLeft}
+                attackTwoID={"buttonTwoLeftID"}
+                threePP={threePPCountLeft}
+                attackThreeID={"buttonThreeLeftID"}
+                fourPP={fourPPCountLeft}
+                attackFourID={"buttonFourLeftID"}
+                attackTwoValue={"10"}
+                attackThreeValue={"5"}
                 key={index}
               />)}
 
@@ -417,6 +555,16 @@ const App = () => {
                 spatk={pokemonSpAtkRight}
                 spdef={pokemonSpDefRight}
                 speed={pokemonSpeedRight}
+                onePP={onePPCountRight}
+                attackOneID={"buttonOneRightID"}
+                twoPP={twoPPCountRight}
+                attackTwoID={"buttonTwoRightID"}
+                threePP={threePPCountRight}
+                attackThreeID={"buttonThreeRightID"}
+                fourPP={fourPPCountRight}
+                attackFourID={"buttonFourRightID"}
+                attackTwoValue={"5"}
+                attackThreeValue={"10"}
                 key={index}
               />)}
           </div>
