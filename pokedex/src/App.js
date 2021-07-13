@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react'
 import PokemonDetails from './components/PokemonDetails'
 import axios from 'axios'
@@ -145,67 +146,67 @@ const App = () => {
     }
   }
 
-  const calcMoveOneRight = async () => {
-    var v1 = document.getElementById('healthbarLeft');
-    v1.value -= (Math.random() * (7) + 7) << 0;
-    setPokemonHealthLeft(v1.value);
+  // const calcMoveOneRight = async () => {
+  //   var v1 = document.getElementById('healthbarLeft');
+  //   v1.value -= (Math.random() * (7) + 7) << 0;
+  //   setPokemonHealthLeft(v1.value);
 
-    if (v1.value > 0) {
-      var element = document.getElementById("attackAnimationRight");
-      element.classList.add("rightMoveOneAnimation");
-      setTimeout(() => {
-        element.classList.remove("rightMoveOneAnimation");
-      }, 700)
-    }
+  //   if (v1.value > 0) {
+  //     var element = document.getElementById("attackAnimationRight");
+  //     element.classList.add("rightMoveOneAnimation");
+  //     setTimeout(() => {
+  //       element.classList.remove("rightMoveOneAnimation");
+  //     }, 700)
+  //   }
 
-    if (v1.value > 0) {
-      var audio = document.getElementById("audioLeftMoveOne")
-      audio.play();
-    }
+  //   if (v1.value > 0) {
+  //     var audio = document.getElementById("audioLeftMoveOne")
+  //     audio.play();
+  //   }
 
-    HealthZeroCheck();
+  //   HealthZeroCheck();
 
-    var oneRight = document.getElementById("buttonOneRightID")
+  //   var oneRight = document.getElementById("buttonOneRightID")
 
-    if (oneRight.value > 0) {
-      oneRight.value -= 1;
-      setOnePPCountRight(oneRight.value)
-    }
-    if (oneRight.value == 0) {
-      document.getElementById("buttonOneRightID").disabled = true;
-    }
-  }
+  //   if (oneRight.value > 0) {
+  //     oneRight.value -= 1;
+  //     setOnePPCountRight(oneRight.value)
+  //   }
+  //   if (oneRight.value == 0) {
+  //     document.getElementById("buttonOneRightID").disabled = true;
+  //   }
+  // }
 
-  const calcMoveOneLeft = async () => {
-    var v1 = document.getElementById('healthbarRight');
-    v1.value -= (Math.random() * (12) + 12) << 0;
-    setPokemonHealthRight(v1.value);
+  // const calcMoveOneLeft = async () => {
+  //   var v1 = document.getElementById('healthbarRight');
+  //   v1.value -= (Math.random() * (12) + 12) << 0;
+  //   setPokemonHealthRight(v1.value);
 
-    if (v1.value > 0) {
-      var element = document.getElementById("attackAnimationLeft");
-      element.classList.add("leftMoveOneAnimation");
-      setTimeout(() => {
-        element.classList.remove("leftMoveOneAnimation");
-      }, 700)
-    }
+  //   if (v1.value > 0) {
+  //     var element = document.getElementById("attackAnimationLeft");
+  //     element.classList.add("leftMoveOneAnimation");
+  //     setTimeout(() => {
+  //       element.classList.remove("leftMoveOneAnimation");
+  //     }, 700)
+  //   }
 
-    if (v1.value > 0) {
-      var audio = document.getElementById("audioLeftMoveOne")
-      audio.play();
-    }
+  //   if (v1.value > 0) {
+  //     var audio = document.getElementById("audioLeftMoveOne")
+  //     audio.play();
+  //   }
 
-    HealthZeroCheck();
+  //   HealthZeroCheck();
 
-    var oneLeft = document.getElementById("buttonOneLeftID")
+  //   var oneLeft = document.getElementById("buttonOneLeftID")
 
-    if (oneLeft.value > 0) {
-      oneLeft.value -= 1;
-      setOnePPCountLeft(oneLeft.value)
-    }
-    if (oneLeft.value == 0) {
-      document.getElementById("buttonOneLeftID").disabled = true;
-    }
-  }
+  //   if (oneLeft.value > 0) {
+  //     oneLeft.value -= 1;
+  //     setOnePPCountLeft(oneLeft.value)
+  //   }
+  //   if (oneLeft.value == 0) {
+  //     document.getElementById("buttonOneLeftID").disabled = true;
+  //   }
+  // }
 
   const calcMoveTwoRight = async () => {
     var v1 = document.getElementById('healthbarLeft');
@@ -472,6 +473,13 @@ const App = () => {
 
             {pokemonDataLeft.map((data, index) =>
               <BattleCard
+                animationId={"attackAnimationRight"}
+                animationClass={"rightMoveOneAnimation"}
+                audioId={"audioLeftMoveOne"}
+                buttonId={"buttonOneRightID"}
+                ppCount={setOnePPCountRight}
+                hpId={"healthbarLeft"}
+                attackValue={7}
                 ground={ground1}
                 groundPosition={"groundPosition2"}
                 attackAudio1={"audioLeftMoveOne"}
@@ -487,7 +495,7 @@ const App = () => {
                 imagePosition={"pokemonBack"}
                 image={data.sprites["back_shiny"]}
                 health={pokemonHealthLeft}
-                moveOneCalculation={calcMoveOneLeft}
+                // moveOneCalculation={calcMoveOneLeft}
                 moveOne={pokemonMoveOneLeft}
                 moveTwoCalculation={calcMoveTwoLeft}
                 moveTwo={pokemonMoveTwoLeft}
@@ -521,6 +529,12 @@ const App = () => {
 
             {pokemonDataRight.map((data, index) =>
               <BattleCard
+                animationId={"attackAnimationLeft"}
+                animationClass={"rightMoveOneAnimation"}
+                audioId={"audioLeftMoveOne"}
+                buttonId={"buttonOneLeftID"}
+                hpId={"healthbarRight"}
+                attackValue={7}
                 groundPosition={"groundPosition"}
                 ground={ground}
                 attackAudio1={"audioRightMoveOne"}
@@ -536,7 +550,7 @@ const App = () => {
                 imagePosition={"pokemonFront"}
                 image={data.sprites["front_shiny"]}
                 health={pokemonHealthRight}
-                moveOneCalculation={calcMoveOneRight}
+                // moveOneCalculation={calcMoveOneRight}
                 moveOne={pokemonMoveOneRight}
                 moveTwoCalculation={calcMoveTwoRight}
                 moveTwo={pokemonMoveTwoRight}
