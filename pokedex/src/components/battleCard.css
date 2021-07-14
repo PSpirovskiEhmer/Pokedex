@@ -41,7 +41,7 @@ progress::-webkit-progress-bar {
     border-color: black;
     border-style: solid;
     border-width: 2px;
-    width: 270px;
+    width: 280px;
     margin: 0 auto;
     background-color: white;
     padding: 5px;
@@ -155,8 +155,8 @@ progress::-webkit-progress-bar {
 }
 
 .divTableCell1{
-    width: 130px;
-    max-width: 130px;
+    width: 135px;
+    max-width: 135px;
     text-transform: capitalize;
     background-color: rgb(233, 231, 231);
     margin-right: 5px;
@@ -164,8 +164,8 @@ progress::-webkit-progress-bar {
 }
 
 .divTableCell2{
-    width: 130px;
-    max-width: 130px;
+    width: 135px;
+    max-width: 135px;
     text-transform: capitalize;
     background-color: rgb(233, 231, 231);
     margin-left: 5px;

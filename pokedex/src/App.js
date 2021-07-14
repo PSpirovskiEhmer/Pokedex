@@ -32,7 +32,7 @@ const App = () => {
   const [pokemonMoveTwoLeft, setPokemonMoveTwoLeft] = useState("")
   const [pokemonMoveThreeLeft, setPokemonMoveThreeLeft] = useState("")
   const [pokemonMoveFourLeft, setPokemonMoveFourLeft] = useState("")
-  const [pokemonHealthLeft, setPokemonHealthLeft] = useState("")
+  const [pokemonHealthLeft, setPokemonHealthLeft] = useState("100")
   const [pokemonNameRight, setPokemonNameRight] = useState("")
   const [pokemonIDRight, setPokemonIDRight] = useState("")
   const [pokemonTypeRight, setPokemonTypeRight] = useState("")
@@ -47,15 +47,15 @@ const App = () => {
   const [pokemonMoveTwoRight, setPokemonMoveTwoRight] = useState("")
   const [pokemonMoveThreeRight, setPokemonMoveThreeRight] = useState("")
   const [pokemonMoveFourRight, setPokemonMoveFourRight] = useState("")
-  const [pokemonHealthRight, setPokemonHealthRight] = useState("")
-  const [onePPCountRight, setOnePPCountRight] = useState("")
-  const [twoPPCountRight, setTwoPPCountRight] = useState("")
-  const [threePPCountRight, setThreePPCountRight] = useState("")
-  const [fourPPCountRight, setFourPPCountRight] = useState("")
-  const [onePPCountLeft, setOnePPCountLeft] = useState("")
-  const [twoPPCountLeft, setTwoPPCountLeft] = useState("")
-  const [threePPCountLeft, setThreePPCountLeft] = useState("")
-  const [fourPPCountLeft, setFourPPCountLeft] = useState("")
+  const [pokemonHealthRight, setPokemonHealthRight] = useState("100")
+  const [onePPCountRight, setOnePPCountRight] = useState("25")
+  const [twoPPCountRight, setTwoPPCountRight] = useState("5")
+  const [threePPCountRight, setThreePPCountRight] = useState("10")
+  const [fourPPCountRight, setFourPPCountRight] = useState("5")
+  const [onePPCountLeft, setOnePPCountLeft] = useState("25")
+  const [twoPPCountLeft, setTwoPPCountLeft] = useState("10")
+  const [threePPCountLeft, setThreePPCountLeft] = useState("5")
+  const [fourPPCountLeft, setFourPPCountLeft] = useState("5")
   const containerBackgroundLeft = pokemonTypeLeft + " detailcontainerNew";
   const containerBackgroundRight = pokemonTypeRight + " detailcontainerNew";
 
@@ -146,67 +146,67 @@ const App = () => {
     }
   }
 
-  // const calcMoveOneRight = async () => {
-  //   var v1 = document.getElementById('healthbarLeft');
-  //   v1.value -= (Math.random() * (7) + 7) << 0;
-  //   setPokemonHealthLeft(v1.value);
+  const calcMoveOneRight = async () => {
+    var v1 = document.getElementById('healthbarLeft');
+    v1.value -= (Math.random() * (7) + 7) << 0;
+    setPokemonHealthLeft(v1.value);
 
-  //   if (v1.value > 0) {
-  //     var element = document.getElementById("attackAnimationRight");
-  //     element.classList.add("rightMoveOneAnimation");
-  //     setTimeout(() => {
-  //       element.classList.remove("rightMoveOneAnimation");
-  //     }, 700)
-  //   }
+    if (v1.value > 0) {
+      var element = document.getElementById("attackAnimationRight");
+      element.classList.add("rightMoveOneAnimation");
+      setTimeout(() => {
+        element.classList.remove("rightMoveOneAnimation");
+      }, 700)
+    }
 
-  //   if (v1.value > 0) {
-  //     var audio = document.getElementById("audioLeftMoveOne")
-  //     audio.play();
-  //   }
+    if (v1.value > 0) {
+      var audio = document.getElementById("audioLeftMoveOne")
+      audio.play();
+    }
 
-  //   HealthZeroCheck();
+    HealthZeroCheck();
 
-  //   var oneRight = document.getElementById("buttonOneRightID")
+    var oneRight = document.getElementById("buttonOneRightID")
 
-  //   if (oneRight.value > 0) {
-  //     oneRight.value -= 1;
-  //     setOnePPCountRight(oneRight.value)
-  //   }
-  //   if (oneRight.value == 0) {
-  //     document.getElementById("buttonOneRightID").disabled = true;
-  //   }
-  // }
+    if (oneRight.value > 0) {
+      oneRight.value -= 1;
+      setOnePPCountRight(oneRight.value)
+    }
+    if (oneRight.value == 0) {
+      document.getElementById("buttonOneRightID").disabled = true;
+    }
+  }
 
-  // const calcMoveOneLeft = async () => {
-  //   var v1 = document.getElementById('healthbarRight');
-  //   v1.value -= (Math.random() * (12) + 12) << 0;
-  //   setPokemonHealthRight(v1.value);
+  const calcMoveOneLeft = async () => {
+    var v1 = document.getElementById('healthbarRight');
+    v1.value -= (Math.random() * (12) + 12) << 0;
+    setPokemonHealthRight(v1.value);
 
-  //   if (v1.value > 0) {
-  //     var element = document.getElementById("attackAnimationLeft");
-  //     element.classList.add("leftMoveOneAnimation");
-  //     setTimeout(() => {
-  //       element.classList.remove("leftMoveOneAnimation");
-  //     }, 700)
-  //   }
+    if (v1.value > 0) {
+      var element = document.getElementById("attackAnimationLeft");
+      element.classList.add("leftMoveOneAnimation");
+      setTimeout(() => {
+        element.classList.remove("leftMoveOneAnimation");
+      }, 700)
+    }
 
-  //   if (v1.value > 0) {
-  //     var audio = document.getElementById("audioLeftMoveOne")
-  //     audio.play();
-  //   }
+    if (v1.value > 0) {
+      var audio = document.getElementById("audioLeftMoveOne")
+      audio.play();
+    }
 
-  //   HealthZeroCheck();
+    HealthZeroCheck();
 
-  //   var oneLeft = document.getElementById("buttonOneLeftID")
+    var oneLeft = document.getElementById("buttonOneLeftID")
 
-  //   if (oneLeft.value > 0) {
-  //     oneLeft.value -= 1;
-  //     setOnePPCountLeft(oneLeft.value)
-  //   }
-  //   if (oneLeft.value == 0) {
-  //     document.getElementById("buttonOneLeftID").disabled = true;
-  //   }
-  // }
+    if (oneLeft.value > 0) {
+      oneLeft.value -= 1;
+      setOnePPCountLeft(oneLeft.value)
+    }
+    if (oneLeft.value == 0) {
+      document.getElementById("buttonOneLeftID").disabled = true;
+    }
+  }
 
   const calcMoveTwoRight = async () => {
     var v1 = document.getElementById('healthbarLeft');
@@ -495,7 +495,7 @@ const App = () => {
                 imagePosition={"pokemonBack"}
                 image={data.sprites["back_shiny"]}
                 health={pokemonHealthLeft}
-                // moveOneCalculation={calcMoveOneLeft}
+                moveOneCalculation={calcMoveOneLeft}
                 moveOne={pokemonMoveOneLeft}
                 moveTwoCalculation={calcMoveTwoLeft}
                 moveTwo={pokemonMoveTwoLeft}
@@ -550,7 +550,7 @@ const App = () => {
                 imagePosition={"pokemonFront"}
                 image={data.sprites["front_shiny"]}
                 health={pokemonHealthRight}
-                // moveOneCalculation={calcMoveOneRight}
+                moveOneCalculation={calcMoveOneRight}
                 moveOne={pokemonMoveOneRight}
                 moveTwoCalculation={calcMoveTwoRight}
                 moveTwo={pokemonMoveTwoRight}
