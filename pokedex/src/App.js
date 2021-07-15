@@ -1,8 +1,8 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react'
-import PokemonDetails from './components/PokemonDetails'
+import PokemonDetails from './components/BattleCard/PokemonDetails'
 import axios from 'axios'
-import BattleCard from './components/battleCard'
+import BattleCard from './components/BattleCard/battleCard'
 import './App.css';
 import ground from './ground.png'
 import ground1 from './ground1.png'
@@ -432,6 +432,34 @@ const App = () => {
     setPokemonHealthLeft(document.getElementById("healthbarLeft").value);
     setPokemonHealthRight(document.getElementById("healthbarRight").value);
   }
+  // const [text, setText] = useState('')
+  // const [suggestions, setSuggestions] = useState([])
+  // const [loadList, setLoadList] = useState([])
+
+  // const getListPokemon = async () => {
+  //   const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1118')
+  //   const data = await res.json()
+  //   setLoadList(newArray => [...newArray, data])
+  //   console.log(data)
+  // }
+
+  // useEffect(() => {
+  //   getListPokemon()
+  // }, [])
+
+  // const onChangeHandler = (text) => {
+  //   let matches = []
+  //   if (text.length>0){
+  //     matches = loadList.filter(user=>{
+  //       const regex = new RegExp(`${text}`, "gi");
+  //       return user.results.name.match(regex)
+  //     })
+  //   }
+  //   console.log(matches)
+  //   setSuggestions(matches)
+  //   setText(text)
+  // }
+
 
   const [allPokemon, setAllPokemon] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=9')
